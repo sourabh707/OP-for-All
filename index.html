@@ -123,11 +123,57 @@
   .step-num-circle { width: 22px; height: 22px; border-radius: 50%; background: #1a1a18; color: #fff; font-size: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
   .step-num-circle.gray { background: #9c9a92; }
 
+  .search-box { border: 0.5px solid #d3d1c7; border-radius: 12px; background: #fff; overflow: hidden; margin-bottom: 8px; }
+  .search-bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 0.5px solid #f0efe8; }
+  .search-icon { font-size: 14px; color: #9c9a92; }
+  .search-input-mock { flex: 1; font-size: 12px; color: #9c9a92; font-style: italic; }
+  .search-pill { font-size: 10px; padding: 3px 8px; border-radius: 10px; border: 0.5px solid #d3d1c7; color: #73726c; background: #f5f4f0; cursor: default; }
+  .search-filters { display: flex; gap: 6px; padding: 10px 14px; flex-wrap: wrap; border-bottom: 0.5px solid #f0efe8; }
+  .search-filter { font-size: 11px; padding: 3px 10px; border-radius: 20px; border: 0.5px solid #d3d1c7; color: #73726c; background: #fff; cursor: pointer; transition: all .15s; }
+  .search-filter.active { background: #1a1a18; color: #fff; border-color: #1a1a18; }
+  .search-results { padding: 10px 14px 14px; display: flex; flex-direction: column; gap: 7px; }
+  .search-result-item { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 11px; border: 0.5px solid #ebe9e2; border-radius: 8px; background: #fafaf8; }
+  .sri-left { display: flex; align-items: center; gap: 9px; }
+  .sri-icon { width: 26px; height: 26px; border-radius: 6px; background: #f0efe8; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+  .sri-name { font-size: 12px; font-weight: 500; color: #1a1a18; }
+  .sri-loc { font-size: 10px; color: #73726c; margin-top: 1px; }
+  .sri-right { display: flex; align-items: center; gap: 6px; }
+  .sri-mode { font-size: 10px; font-weight: 500; padding: 2px 6px; border-radius: 4px; }
+  .sri-dist { font-size: 10px; color: #73726c; }
+
+  .pincode-banner { border: 0.5px solid #B5D4F4; border-radius: 8px; background: #E6F1FB; padding: 11px 14px; display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .pb-icon { font-size: 16px; flex-shrink: 0; }
+  .pb-text { font-size: 12px; color: #0C447C; flex: 1; line-height: 1.5; }
+  .pb-text strong { font-weight: 500; }
+  .pb-change { font-size: 11px; color: #185FA5; text-decoration: underline; cursor: pointer; flex-shrink: 0; }
+
+  .modular-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; margin-bottom: 8px; }
+  .modular-card { border: 0.5px solid #d3d1c7; border-radius: 8px; padding: 12px 13px; background: #fff; }
+  .mc-icon { font-size: 16px; margin-bottom: 7px; }
+  .mc-title { font-size: 12px; font-weight: 500; color: #1a1a18; margin-bottom: 4px; }
+  .mc-desc { font-size: 11px; color: #555; line-height: 1.6; }
+
+  .hosp-callout { border: 0.5px solid #F09595; border-radius: 8px; background: #FCEBEB; padding: 13px 15px; margin-bottom: 8px; }
+  .hosp-callout-title { font-size: 12px; font-weight: 500; color: #791F1F; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .hosp-timeline { display: flex; flex-direction: column; gap: 8px; }
+  .ht-row { display: flex; gap: 10px; align-items: flex-start; }
+  .ht-dot { width: 8px; height: 8px; border-radius: 50%; background: #A32D2D; flex-shrink: 0; margin-top: 3px; }
+  .ht-text { font-size: 11px; color: #791F1F; line-height: 1.6; }
+  .ht-text strong { color: #5a1212; font-weight: 500; }
+
+  .benchmark-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; }
+  .bench-card { border: 0.5px solid #d3d1c7; border-radius: 8px; padding: 11px 13px; background: #fff; }
+  .bench-name { font-size: 12px; font-weight: 500; color: #1a1a18; margin-bottom: 4px; }
+  .bench-what { font-size: 11px; color: #555; line-height: 1.55; margin-bottom: 6px; }
+  .bench-tag { font-size: 10px; padding: 2px 7px; border-radius: 4px; }
+
   @media (max-width: 600px) {
     .cohort-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .vendor-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .nudge-grid { grid-template-columns: 1fr; }
     .metric-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .modular-grid { grid-template-columns: 1fr; }
+    .benchmark-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   }
 </style>
 </head>
@@ -365,6 +411,26 @@
         <div class="nudge-cohort-tags"><span class="nct nct-d">Cohort D</span></div>
       </div>
     </div>
+    <div class="nudge-card" onclick="toggleNudge(this)">
+      <div class="nudge-head"><div class="nudge-icon" style="background:#E1F5EE">&#128172;</div><div><div class="nudge-title">WhatsApp message</div><div class="nudge-sub">Direct channel with high open rates</div></div></div>
+      <div class="nudge-detail">
+        <div class="nudge-detail-title">Where to place the nudge</div>
+        <div class="nudge-point"><div class="np-dot" style="background:#0F6E56"></div><div class="nudge-point-body"><strong>Post-claim WhatsApp</strong> — After a reimbursement is processed, send a WhatsApp message: "Your claim of ₹X is settled. Next time, skip the paperwork — book cashless through MAven." Include a deep link with the member's pin code pre-loaded.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#0F6E56"></div><div class="nudge-point-body"><strong>Hospitalisation discharge message</strong> — Within 48 hours of discharge, send "You have been discharged. Your recovery will need medicines and tests — get [X]% off through MAven." Triggered automatically by the discharge event.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#0F6E56"></div><div class="nudge-point-body"><strong>Seasonal health alert</strong> — During monsoon or other seasonal health peaks, a WhatsApp broadcast with localised messaging and a discount code for lab tests or consultations.</div></div>
+        <div class="nudge-cohort-tags"><span class="nct nct-a">Cohort A</span><span class="nct nct-b">Cohort B</span><span class="nct nct-c">Cohort C</span><span class="nct nct-d">Cohort D</span></div>
+      </div>
+    </div>
+    <div class="nudge-card" onclick="toggleNudge(this)">
+      <div class="nudge-head"><div class="nudge-icon" style="background:#EEEDFE">&#9989;</div><div><div class="nudge-title">Cashless and reimbursement approval letters</div><div class="nudge-sub">Embedded in every formal communication sent by MediAssist</div></div></div>
+      <div class="nudge-detail">
+        <div class="nudge-detail-title">Where to place the nudge</div>
+        <div class="nudge-point"><div class="np-dot" style="background:#3C3489"></div><div class="nudge-point-body"><strong>Cashless pre-authorisation letter</strong> — When a cashless approval is sent to the member or hospital, include a dynamic section: "While you are receiving treatment, set up outpatient services for your recovery — [X]% off on medicines and lab tests." Configurable discount shown per corporate.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#3C3489"></div><div class="nudge-point-body"><strong>Reimbursement approval letter</strong> — When a reimbursement is approved and the settlement letter is generated, embed an outpatient prompt specific to the service category claimed. Pharmacy claim settled → promote cashless pharmacy. Lab test claim settled → promote cashless lab booking.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#3C3489"></div><div class="nudge-point-body"><strong>Rejection or partial settlement letter</strong> — When a claim is rejected or partially settled, the letter includes: "Reduce future out-of-pocket costs — book outpatient services cashless through MAven so there is nothing to claim." Turns a frustrating moment into a platform adoption opportunity.</div></div>
+        <div class="nudge-cohort-tags"><span class="nct nct-a">Cohort A</span><span class="nct nct-b">Cohort B</span><span class="nct nct-c">Cohort C</span></div>
+      </div>
+    </div>
   </div>
 
   <div class="divider"></div>
@@ -386,6 +452,200 @@
       Member ID &nbsp;·&nbsp; Corporate &nbsp;·&nbsp; Service name &nbsp;·&nbsp; Vendor &nbsp;·&nbsp; Settlement mode (cashless / reimbursement / discount) &nbsp;·&nbsp; Timestamp &nbsp;·&nbsp; Return status (completed / abandoned / error)
     </div>
   </div>
+
+  <div class="divider"></div>
+
+  <!-- STEP 8 — MODULAR COMPONENT ARCHITECTURE -->
+  <div class="section-title">Step 8 — Modular component architecture</div>
+  <div class="section-desc">The outpatient service component must not live only inside the OP section of the app. It must be built as an independent, self-contained module that can be invoked from any screen — claims, cashless approval, reimbursement, intimation, or any future touchpoint. If it is tightly coupled to a single screen, the pull strategy fails.</div>
+
+  <div class="modular-grid">
+    <div class="modular-card">
+      <div class="mc-icon">&#127968;</div>
+      <div class="mc-title">Claims submission screen</div>
+      <div class="mc-desc">When a member submits a reimbursement claim for a lab test, the OP module appears inline: "Next time, book cashless directly through MAven." One tap opens the service with the member's pin code pre-loaded.</div>
+    </div>
+    <div class="modular-card">
+      <div class="mc-icon">&#9989;</div>
+      <div class="mc-title">Cashless pre-authorisation letter</div>
+      <div class="mc-desc">When a cashless approval letter is sent — digitally or via email — a dynamic banner is embedded showing the outpatient discount available to this member. Configured per corporate, per service.</div>
+    </div>
+    <div class="modular-card">
+      <div class="mc-icon">&#128203;</div>
+      <div class="mc-title">Reimbursement approval letter</div>
+      <div class="mc-desc">After a reimbursement is processed, the approval communication includes an outpatient nudge with the specific service category that was claimed — if a pharmacy claim was reimbursed, pharmacy cashless is promoted.</div>
+    </div>
+    <div class="modular-card">
+      <div class="mc-icon">&#127973;</div>
+      <div class="mc-title">Hospitalisation intimation flow</div>
+      <div class="mc-desc">When a member initiates a hospitalisation intimation, the module surfaces: "During recovery, you will need medicines and lab tests. Set up your outpatient services now." This is the single highest-intent moment in the entire member journey.</div>
+    </div>
+    <div class="modular-card">
+      <div class="mc-icon">&#128241;</div>
+      <div class="mc-title">Push notification and WhatsApp</div>
+      <div class="mc-desc">The module can be triggered as a push notification or WhatsApp message with a deep link directly to the service catalogue. The discount percentage and pin code are pre-populated from the member's profile. No new screen needed.</div>
+    </div>
+    <div class="modular-card">
+      <div class="mc-icon">&#128274;</div>
+      <div class="mc-title">Architecture requirement</div>
+      <div class="mc-desc">The component exposes a single API call: resolve(member_id, service_hint?, location?). Any screen in the app or any communication channel calls this and receives the correct experience for that member's cohort. No duplication of logic.</div>
+    </div>
+  </div>
+  <div class="logic-box blue" style="margin-top:4px">
+    Design principle: <strong>build once, invoke from anywhere.</strong> The outpatient module is not a page — it is a service. Any screen, letter, notification, or message can embed it with a single API call and a configurable discount value per corporate.
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- STEP 9 — PER-CORPORATE DISCOUNT CONFIG -->
+  <div class="section-title">Step 9 — Per-corporate discount configuration</div>
+  <div class="section-desc">The discount percentage offered to members is not a platform-wide constant. Each corporate can have a different rate negotiated with MediAssist — Corporate A may offer employees 10%, Corporate B may offer 20%. This must be fully configurable without a code deployment.</div>
+
+  <div class="config-block open" onclick="toggleConfig(this)">
+    <div class="config-header">
+      <div class="ch-icon" style="background:#FAEEDA">&#128181;</div>
+      <div class="ch-body"><div class="ch-title">Corporate-level discount rate — configurable per service per corporate</div><div class="ch-sub">Different corporates can show different discount percentages for the same service</div></div>
+      <div class="ch-arrow">&#9660;</div>
+    </div>
+    <div class="config-body">
+      <div class="config-rule"><div class="cr-dot blue"></div><div class="cr-text"><strong>Scenario 1 — Standard discount:</strong> A mid-size corporate has negotiated a flat 10% discount for all outpatient services on behalf of their employees. Every member at that corporate sees "10% off" on every service tile in Cohort D or on MediAssist discount tiles in Cohort A, B, and C.</div></div>
+      <div class="config-rule"><div class="cr-dot green"></div><div class="cr-text"><strong>Scenario 2 — Premium corporate deal:</strong> A large corporate with high member volume has negotiated 20% on pharmacy and 25% on lab tests as part of an annual contract. Discounts are higher because the referral volume is higher. Different rates apply per service for the same corporate.</div></div>
+      <div class="config-rule"><div class="cr-dot amber"></div><div class="cr-text"><strong>Scenario 3 — No MediAssist discount for this corporate:</strong> Some corporates have their own vendor contracts and do not want MediAssist's discount to appear alongside. The discount rate is set to zero or the discount tile is suppressed entirely for that corporate.</div></div>
+      <div class="config-rule"><div class="cr-dot blue"></div><div class="cr-text"><strong>Banner and nudge content is discount-aware:</strong> When the OP module is invoked from a claim screen, approval letter, WhatsApp message, or push notification, the discount value shown to the member is pulled from this config in real time. The message "You can save 20% on lab tests" is dynamically generated — not hardcoded.</div></div>
+      <div class="logic-box amber">Configuration keys:<br>
+        <strong>corporate_discount_config[corporate_id][service_id].discount_pct = 0–100</strong><br>
+        <strong>corporate_discount_config[corporate_id][service_id].discount_label = "20% off" | null</strong><br>
+        <strong>corporate_discount_config[corporate_id].discount_enabled = true / false</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- STEP 10 — PIN CODE PERSISTENCE AND SEARCH -->
+  <div class="section-title">Step 10 — Pin code persistence and provider search</div>
+  <div class="section-desc">Two related requirements that change how members discover and access services. Once a pin code is given, it must be remembered. And beyond the redirect flow, members should be able to actively search for providers by service and location — like a health service finder within the app.</div>
+
+  <div class="section-title" style="margin-top:12px">Pin code — remember, do not ask again</div>
+  <div class="pincode-banner">
+    <div class="pb-icon">&#128205;</div>
+    <div class="pb-text">Your current location is <strong>Mumbai — 400001</strong>. Do you want outpatient services in this area, or a different location?</div>
+    <div class="pb-change">Change</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
+    <div class="config-rule" style="margin-bottom:0"><div class="cr-dot blue"></div><div class="cr-text">Once a member provides their pin code anywhere in the app, it is stored against their profile. On all subsequent outpatient service interactions, the saved location is used automatically — the member is shown a pre-filled confirmation prompt rather than a blank input field.</div></div>
+    <div class="config-rule" style="margin-bottom:0"><div class="cr-dot green"></div><div class="cr-text">The confirmation prompt reads: "Your current pin code is [X]. Find services in this location or a different one?" This adds one tap instead of a full form entry — significantly reducing drop-off in the vendor selection step.</div></div>
+    <div class="config-rule" style="margin-bottom:0"><div class="cr-dot amber"></div><div class="cr-text">If the member is at a new location — for example, travelling for hospitalisation — they can update the pin code inline and the new location is used for that session only, without overwriting the saved home location.</div></div>
+  </div>
+  <div class="logic-box blue" style="margin-bottom:14px">API requirement: <strong>member_profile.last_known_pincode</strong> — read on every outpatient service screen load, written when member confirms or updates location.</div>
+
+  <div class="section-title" style="margin-top:0">Provider search — find services by location</div>
+  <div class="section-desc" style="margin-bottom:10px">Beyond the redirect flow, members should be able to search: "Is cashless lab test available near me?" — a discovery-first experience before they commit to a service.</div>
+
+  <div class="search-box">
+    <div class="search-bar">
+      <div class="search-icon">&#128269;</div>
+      <div class="search-input-mock">Search by service, location, or provider name...</div>
+      <div class="search-pill">Mumbai 400001</div>
+    </div>
+    <div class="search-filters">
+      <div class="search-filter active">All services</div>
+      <div class="search-filter">Lab tests</div>
+      <div class="search-filter">Pharmacy</div>
+      <div class="search-filter">Diagnostics</div>
+      <div class="search-filter">Consultation</div>
+    </div>
+    <div class="search-results">
+      <div class="search-result-item">
+        <div class="sri-left">
+          <div class="sri-icon">&#128299;</div>
+          <div><div class="sri-name">Thyrocare — Andheri West</div><div class="sri-loc">Outpatient lab test collection centre</div></div>
+        </div>
+        <div class="sri-right"><span class="si-mode mode-cashless">Cashless</span><span class="sri-dist">2.1 km</span></div>
+      </div>
+      <div class="search-result-item">
+        <div class="sri-left">
+          <div class="sri-icon">&#128299;</div>
+          <div><div class="sri-name">Redcliffe Labs — Bandra</div><div class="sri-loc">Outpatient lab test — home collection available</div></div>
+        </div>
+        <div class="sri-right"><span class="si-mode mode-cashless">Cashless</span><span class="sri-dist">3.8 km</span></div>
+      </div>
+      <div class="search-result-item">
+        <div class="sri-left">
+          <div class="sri-icon">&#128138;</div>
+          <div><div class="sri-name">Tata 1mg — Online pharmacy</div><div class="sri-loc">Pharmacy — prescription medicines and home delivery</div></div>
+        </div>
+        <div class="sri-right"><span class="si-mode mode-discount">15% discount</span><span class="sri-dist">Online</span></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+    <div class="config-rule" style="margin-bottom:0"><div class="cr-dot blue"></div><div class="cr-text"><strong>Search is discovery-first:</strong> A member can find providers without being in a specific service flow. They type "lab test" or "dental near me" and see all empanelled providers with settlement mode badges and distance.</div></div>
+    <div class="config-rule" style="margin-bottom:0"><div class="cr-dot blue"></div><div class="cr-text"><strong>Settlement mode filter:</strong> Members can filter results by cashless, reimbursement, or discount — useful when a member wants to know specifically what they can access without paying upfront.</div></div>
+    <div class="config-rule" style="margin-bottom:0"><div class="cr-dot amber"></div><div class="cr-text"><strong>Pre-design step — benchmark first:</strong> Before the search UI is built, the team should study how Practo, Medibuddy, Apollo 247, and PharmEasy handle provider search and service discovery. These platforms have iterated on this UX extensively — learn from what works before designing from scratch.</div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- STEP 11 — HOSPITALISATION AS PRIORITY TRIGGER -->
+  <div class="section-title">Step 11 — Hospitalisation as the highest-priority trigger</div>
+  <div class="section-desc">Hospitalisation is not just one nudge point among many — it is the single highest-intent moment in the entire member journey. A hospitalised member will definitely need medicines, lab tests, and follow-up consultations. Failing to surface outpatient services at this moment means losing the member permanently as an outpatient platform user.</div>
+
+  <div class="hosp-callout">
+    <div class="hosp-callout-title">&#9888; Hospitalisation is a 100% conversion trigger — treat it as priority one</div>
+    <div class="hosp-timeline">
+      <div class="ht-row"><div class="ht-dot"></div><div class="ht-text"><strong>During pre-authorisation:</strong> When a cashless hospitalisation pre-auth request is raised, surface the outpatient module inline — "During your stay and recovery, you will need medicines and tests. Set up your outpatient access now." The member is already in the app and highly engaged.</div></div>
+      <div class="ht-row"><div class="ht-dot"></div><div class="ht-text"><strong>Discharge notification:</strong> When the discharge summary is generated or the hospitalisation is closed in the system, trigger a push notification: "You have been discharged. Your doctor likely prescribed medicines and follow-up tests — book cashless through MAven." Deep link to pharmacy and lab test services.</div></div>
+      <div class="ht-row"><div class="ht-dot"></div><div class="ht-text"><strong>Within 48 hours of discharge:</strong> Send a WhatsApp message or email with the outpatient services module embedded — listing pharmacy, lab tests, and follow-up consultation options with the member's saved pin code pre-loaded. This is when the member is most likely to act.</div></div>
+      <div class="ht-row"><div class="ht-dot"></div><div class="ht-text"><strong>Post-hospitalisation claim follow-up:</strong> When the inpatient claim is settled, include an outpatient nudge in the settlement communication — "Claim settled. Did you know you can book your follow-up tests cashless? No paperwork, no reimbursement needed."</div></div>
+    </div>
+  </div>
+  <div class="logic-box blue" style="margin-top:8px">
+    The hospitalisation trigger requires the outpatient module to be wired into the inpatient claims and pre-auth workflows. This is only possible if the module is built as an independent component — which is why <strong>Step 8 (modular architecture)</strong> is a prerequisite for this trigger to work.
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- STEP 12 — BENCHMARK -->
+  <div class="section-title">Step 12 — Competitive benchmarking before UI design</div>
+  <div class="section-desc">Before the outpatient service UI is designed, the team must study how leading consumer health platforms in India handle service discovery, provider selection, and outpatient flows. Do not design in a vacuum — learn what works and adapt it to the MAven context.</div>
+
+  <div class="benchmark-grid">
+    <div class="bench-card">
+      <div class="bench-name">Practo</div>
+      <div class="bench-what">Study their doctor search, clinic finder, and lab booking UX. Strong on location-based discovery and appointment confirmation flows.</div>
+      <div><span class="bench-tag" style="background:#E1F5EE;color:#0F6E56">Search and discovery</span></div>
+    </div>
+    <div class="bench-card">
+      <div class="bench-name">Medibuddy</div>
+      <div class="bench-what">Study their corporate health benefits integration and cashless lab booking. Closest competitor to MAven's outpatient use case.</div>
+      <div><span class="bench-tag" style="background:#E6F1FB;color:#0C447C">Corporate health</span></div>
+    </div>
+    <div class="bench-card">
+      <div class="bench-name">Apollo 247</div>
+      <div class="bench-what">Study their tele-consultation flow and post-hospitalisation care journey. Strong on follow-up care nudges after a health event.</div>
+      <div><span class="bench-tag" style="background:#FAEEDA;color:#854F0B">Post-care nudges</span></div>
+    </div>
+    <div class="bench-card">
+      <div class="bench-name">Tata 1mg</div>
+      <div class="bench-what">Study their pharmacy ordering, lab test booking, and discount display UX. Best-in-class for communicating offers and savings to the member.</div>
+      <div><span class="bench-tag" style="background:#FAEEDA;color:#854F0B">Discount display</span></div>
+    </div>
+    <div class="bench-card">
+      <div class="bench-name">PharmEasy</div>
+      <div class="bench-what">Study their subscription health packages and repeat order flow. Relevant for the pharmacy and lab test reorder experience.</div>
+      <div><span class="bench-tag" style="background:#EEEDFE;color:#3C3489">Repeat usage</span></div>
+    </div>
+    <div class="bench-card">
+      <div class="bench-name">ekincare</div>
+      <div class="bench-what">Study their corporate wellness and diagnostics booking UX. Directly comparable to the MAven OP flow for enterprise health benefit contexts.</div>
+      <div><span class="bench-tag" style="background:#E1F5EE;color:#0F6E56">Corporate wellness</span></div>
+    </div>
+  </div>
+  <div class="logic-box blue" style="margin-top:10px">
+    Action for the team: Use any AI assistant to generate a full outpatient service flow for a B2C health app. Compare that output to what is documented here. Identify gaps. Then review how each platform above handles the same flow and note what should be adapted for MAven's specific context.
+  </div>
+
 </div>
 
 <script>
