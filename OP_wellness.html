@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>OP for All — 360° Workflow</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #1a1a18; padding: 2rem 1rem; min-height: 100vh; }
+  h1 { font-size: 18px; font-weight: 500; color: #1a1a18; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: #73726c; margin-bottom: 28px; }
+  .wrap { max-width: 780px; margin: 0 auto; }
+  .section-title { font-size: 11px; font-weight: 500; color: #9c9a92; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+  .cohort-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; margin-bottom: 12px; }
+  .cohort-card { border: 0.5px solid #d3d1c7; border-radius: 8px; padding: 10px; background: #fff; cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+  .cohort-card.active { border-color: #185FA5; background: #E6F1FB; }
+  .cohort-card:hover { border-color: #b4b2a9; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 6px; border-radius: 4px; margin-bottom: 6px; }
+  .b-cashless { background: #E1F5EE; color: #0F6E56; }
+  .b-reimb { background: #FAEEDA; color: #854F0B; }
+  .b-both { background: #EEEDFE; color: #3C3489; }
+  .b-none { background: #F1EFE8; color: #444441; }
+  .cohort-card .label { font-size: 12px; font-weight: 500; color: #1a1a18; }
+  .cohort-card .sub { font-size: 11px; color: #73726c; margin-top: 2px; }
+  .detail-panel { border: 0.5px solid #d3d1c7; border-radius: 12px; padding: 12px 14px; background: #fff; min-height: 80px; }
+  .tag-row { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
+  .tag { font-size: 10px; padding: 2px 7px; border-radius: 10px; border: 0.5px solid #d3d1c7; color: #73726c; background: #f5f4f0; }
+  .tag.c { background: #E1F5EE; color: #0F6E56; border-color: #9FE1CB; }
+  .tag.r { background: #FAEEDA; color: #854F0B; border-color: #FAC775; }
+  .tag.n { background: #F1EFE8; color: #5F5E5A; border-color: #D3D1C7; }
+  .divider { height: 1px; background: #d3d1c7; margin: 18px 0; }
+  .pill-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .pill { font-size: 11px; padding: 3px 10px; border-radius: 20px; border: 0.5px solid #d3d1c7; cursor: pointer; color: #73726c; background: #fff; transition: all 0.15s; }
+  .pill.active { background: #E6F1FB; color: #185FA5; border-color: #B5D4F4; }
+  .step-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+  .step-num { width: 22px; height: 22px; border-radius: 50%; background: #f5f4f0; border: 0.5px solid #b4b2a9; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: #73726c; flex-shrink: 0; margin-top: 1px; }
+  .step-body .st { font-size: 12px; font-weight: 500; color: #1a1a18; }
+  .step-body .sd { font-size: 11px; color: #73726c; margin-top: 2px; line-height: 1.5; }
+  .vendor-box { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-top: 12px; }
+  .vendor-card { border: 0.5px solid #d3d1c7; border-radius: 8px; padding: 10px; background: #f5f4f0; font-size: 11px; color: #73726c; }
+  .vendor-card .vt { font-size: 12px; font-weight: 500; color: #1a1a18; margin-bottom: 4px; }
+  .api-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; padding: 3px 9px; border-radius: 8px; background: #f5f4f0; border: 0.5px solid #d3d1c7; margin: 3px 2px; color: #1a1a18; }
+  .api-chip .method { font-size: 10px; font-weight: 500; color: #185FA5; }
+  .tracking-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-bottom: 12px; }
+  .metric-card { background: #f5f4f0; border-radius: 8px; padding: 10px; }
+  .metric-card .ml { font-size: 11px; color: #73726c; margin-bottom: 2px; }
+  .metric-card .mv { font-size: 20px; font-weight: 500; color: #1a1a18; }
+  .dp-title { font-size: 13px; font-weight: 500; color: #1a1a18; margin-bottom: 4px; }
+  .dp-desc { font-size: 11px; color: #73726c; line-height: 1.6; }
+  @media (max-width: 560px) {
+    .cohort-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .vendor-box { grid-template-columns: repeat(1, minmax(0,1fr)); }
+    .tracking-grid { grid-template-columns: repeat(1, minmax(0,1fr)); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>OP for All — 360° Workflow</h1>
+  <div class="subtitle">MediAssist · MAven Platform · Phase 1</div>
+
+  <!-- STEP 1 -->
+  <div class="section-title">Step 1 — Member cohort identification</div>
+  <div class="cohort-grid">
+    <div class="cohort-card active" onclick="selectCohort(0)">
+      <span class="badge b-cashless">Cashless</span>
+      <div class="label">OP + Cashless</div>
+      <div class="sub">Direct vendor redirect</div>
+    </div>
+    <div class="cohort-card" onclick="selectCohort(1)">
+      <span class="badge b-reimb">Reimb. only</span>
+      <div class="label">OP + Reimbursement</div>
+      <div class="sub">Redirect + claim tag</div>
+    </div>
+    <div class="cohort-card" onclick="selectCohort(2)">
+      <span class="badge b-both">Both</span>
+      <div class="label">OP + Both modes</div>
+      <div class="sub">Per-service UI label</div>
+    </div>
+    <div class="cohort-card" onclick="selectCohort(3)">
+      <span class="badge b-none">Discount</span>
+      <div class="label">No OP benefit</div>
+      <div class="sub">Volume discount offer</div>
+    </div>
+  </div>
+  <div class="detail-panel" id="cohort-detail">
+    <div class="dp-title">Cohort A — OP + Cashless available</div>
+    <div class="dp-desc">Current live cohort. Member redirected to vendor with cashless integration. Service-level cashless flag checked before redirect. Integration with Medulife / iKin / partner vendor active.</div>
+    <div class="tag-row">
+      <span class="tag c">Cashless redirect</span>
+      <span class="tag">Vendor integration live</span>
+      <span class="tag">Service-level flag check</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- STEP 2 -->
+  <div class="section-title">Step 2 — OP service & benefit mapping</div>
+  <div class="pill-row" id="service-pills">
+    <div class="pill active" onclick="selectService(this,'Pharmacy')">Pharmacy</div>
+    <div class="pill" onclick="selectService(this,'Lab tests')">Lab tests</div>
+    <div class="pill" onclick="selectService(this,'Diagnostics')">Diagnostics</div>
+    <div class="pill" onclick="selectService(this,'Wellness')">Wellness</div>
+    <div class="pill" onclick="selectService(this,'Consultation')">Consultation</div>
+    <div class="pill" onclick="selectService(this,'Dental / Vision')">Dental / Vision</div>
+  </div>
+  <div class="detail-panel" id="service-detail">
+    <div class="dp-title">Pharmacy</div>
+    <div class="dp-desc">Per-service cashless/reimbursement flag fetched from policy API. UI tags each service card accordingly. If flag missing → discount offer shown as fallback.</div>
+    <div class="tag-row">
+      <span class="tag c">Cashless available</span>
+      <span class="tag r">Reimb. available</span>
+      <span class="tag n">Discount fallback</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- STEP 3 -->
+  <div class="section-title">Step 3 — Vendor selection & routing</div>
+  <div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><div class="st">Fetch vendors for service + corporate</div><div class="sd">API returns vendor list scoped to policy and service type</div></div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><div class="st">Single vendor → auto redirect</div><div class="sd">No user input needed. Log redirect event with member ID, service, vendor.</div></div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><div class="st">Multiple vendors → pin code / location filter</div><div class="sd">Location narrows to 1 vendor → auto redirect. Still multiple → member selects. Location logic currently hardcoded for TCS — needs to be generalised.</div></div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body"><div class="st">Future: prioritisation engine</div><div class="sd">Backend returns ranked vendor. Supports manual priority, round-robin, or randomisation. UI consumes ranked result transparently.</div></div></div>
+  </div>
+  <div class="vendor-box">
+    <div class="vendor-card"><div class="vt">Cashless vendors</div>Integrated (Medulife / iKin). Active redirect with cashless settlement.</div>
+    <div class="vendor-card"><div class="vt">Reimbursement vendors</div>Redirect + claim tagging. Member submits claim post-visit.</div>
+    <div class="vendor-card"><div class="vt">Discount partners</div>No policy coverage. Volume deal. Coupon-code flow for uncovered members.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- STEP 4 -->
+  <div class="section-title">Step 4 — APIs required (Phase 1)</div>
+  <div style="line-height:2.2">
+    <span class="api-chip"><span class="method">GET</span>services by corporate</span>
+    <span class="api-chip"><span class="method">GET</span>service benefit flags (cashless / reimb.)</span>
+    <span class="api-chip"><span class="method">GET</span>vendors by service + pin code</span>
+    <span class="api-chip"><span class="method">GET</span>vendor priority (ranked — dummy first)</span>
+    <span class="api-chip"><span class="method">POST</span>redirect event log</span>
+    <span class="api-chip"><span class="method">GET</span>discount offer by service</span>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- STEP 5 -->
+  <div class="section-title">Step 5 — Tracking & analytics</div>
+  <div class="tracking-grid">
+    <div class="metric-card"><div class="ml">Redirects per service</div><div class="mv">Track</div></div>
+    <div class="metric-card"><div class="ml">Distinct users clicked</div><div class="mv">Track</div></div>
+    <div class="metric-card"><div class="ml">Vendor conversions</div><div class="mv">Track</div></div>
+  </div>
+  <div class="detail-panel">
+    <div class="dp-title">Why tracking matters</div>
+    <div class="dp-desc">Tracking redirect volume per vendor is the foundation for negotiating volume discounts. Only once we can demonstrate member referral counts does the commercial deal with vendors become possible. Every redirect event must log: member ID, corporate, service name, vendor, settlement mode (cashless / reimbursement / discount), and timestamp.</div>
+    <div class="tag-row">
+      <span class="tag">Member ID + corporate</span>
+      <span class="tag">Service + vendor</span>
+      <span class="tag">Mode (cashless / reimb. / discount)</span>
+      <span class="tag">Timestamp</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const cohorts = [
+  { title: 'Cohort A — OP + Cashless available', desc: 'Current live cohort. Member redirected to vendor with cashless integration. Service-level cashless flag checked before redirect. Integration with Medulife / iKin / partner vendor active.', tags: [['c','Cashless redirect'],['','Vendor integration live'],['','Service-level flag check']] },
+  { title: 'Cohort B — OP + Reimbursement only', desc: 'New cohort to unlock. Member redirected to vendor. Reimbursement tag applied so the member knows to submit a claim post-visit. UI shows "Reimbursement available" badge per service card.', tags: [['r','Reimb. tag on redirect'],['','Claim submission path'],['','No cashless settlement']] },
+  { title: 'Cohort C — OP + Both modes', desc: 'Some services cashless, others reimbursement within the same policy. UI must differentiate per service. Member sees clear mode label before redirect. Most complex UI state to handle.', tags: [['c','Per-service cashless flag'],['r','Per-service reimb. flag'],['','Mixed mode UI']] },
+  { title: 'Cohort D — No OP benefit', desc: 'No OP or DOMI in policy. Member still shown all available services. Coupon code or volume discount offered (e.g. ₹500 equivalent). Vendor deal enables discount for redirected members.', tags: [['n','Discount / coupon flow'],['','Volume deal with vendor'],['','Track referral conversion']] }
+];
+const services = {
+  'Pharmacy': { desc: 'Per-service cashless/reimbursement flag fetched from policy API. UI tags each service card accordingly. If flag missing → discount offer shown as fallback.', tags: [['c','Cashless available'],['r','Reimb. available'],['n','Discount fallback']] },
+  'Lab tests': { desc: 'Lab test bookings via vendor redirect. Cashless if policy covers; reimbursement tagging otherwise. Pin-code-based lab location selection.', tags: [['c','Cashless if covered'],['r','Reimb. tagging'],['','Location-based']] },
+  'Diagnostics': { desc: 'Imaging and scan services. Often reimbursement-only due to vendor complexity. Redirect with claim reference generated.', tags: [['r','Typically reimb.'],['','Claim ref. generated']] },
+  'Wellness': { desc: 'Walk-in wellness services. Cashless walk-in for covered members; discount for uncovered members.', tags: [['c','Walk-in cashless'],['n','Discount for uncovered']] },
+  'Consultation': { desc: 'Tele-consultation and clinic visits. Vendor redirect with session token. Cashless or reimbursement based on policy flag.', tags: [['c','Cashless sessions'],['r','Reimb. visits']] },
+  'Dental / Vision': { desc: 'Specialty OP benefit with separate sub-limit in policy. Cashless with empanelled network; reimbursement for out-of-network.', tags: [['c','Network cashless'],['r','Non-network reimb.']] }
+};
+function selectCohort(i) {
+  document.querySelectorAll('.cohort-card').forEach((c,j) => c.classList.toggle('active', i===j));
+  const d = document.getElementById('cohort-detail');
+  const c = cohorts[i];
+  d.innerHTML = `<div class="dp-title">${c.title}</div><div class="dp-desc">${c.desc}</div><div class="tag-row">${c.tags.map(t=>`<span class="tag ${t[0]}">${t[1]}</span>`).join('')}</div>`;
+}
+function selectService(el, name) {
+  document.querySelectorAll('#service-pills .pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  const d = document.getElementById('service-detail');
+  const s = services[name];
+  d.innerHTML = `<div class="dp-title">${name}</div><div class="dp-desc">${s.desc}</div><div class="tag-row">${s.tags.map(t=>`<span class="tag ${t[0]}">${t[1]}</span>`).join('')}</div>`;
+}
+</script>
+</body>
+</html>
