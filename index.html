@@ -9,48 +9,125 @@
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #1a1a18; padding: 2rem 1rem; min-height: 100vh; }
   h1 { font-size: 18px; font-weight: 500; color: #1a1a18; margin-bottom: 4px; }
   .subtitle { font-size: 13px; color: #73726c; margin-bottom: 28px; }
-  .wrap { max-width: 780px; margin: 0 auto; }
-  .section-title { font-size: 11px; font-weight: 500; color: #9c9a92; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+  .wrap { max-width: 820px; margin: 0 auto; }
+  .section-title { font-size: 11px; font-weight: 500; color: #9c9a92; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .section-desc { font-size: 12px; color: #73726c; margin-bottom: 12px; line-height: 1.65; }
+  .divider { height: 1px; background: #d3d1c7; margin: 22px 0; }
+
   .cohort-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; margin-bottom: 12px; }
   .cohort-card { border: 0.5px solid #d3d1c7; border-radius: 8px; padding: 10px; background: #fff; cursor: pointer; transition: border-color 0.15s, background 0.15s; }
   .cohort-card.active { border-color: #185FA5; background: #E6F1FB; }
-  .cohort-card:hover { border-color: #b4b2a9; }
-  .badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 6px; border-radius: 4px; margin-bottom: 6px; }
+  .cohort-card:hover:not(.active) { border-color: #b4b2a9; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 4px; margin-bottom: 6px; }
   .b-cashless { background: #E1F5EE; color: #0F6E56; }
   .b-reimb { background: #FAEEDA; color: #854F0B; }
   .b-both { background: #EEEDFE; color: #3C3489; }
   .b-none { background: #F1EFE8; color: #444441; }
-  .cohort-card .label { font-size: 12px; font-weight: 500; color: #1a1a18; }
-  .cohort-card .sub { font-size: 11px; color: #73726c; margin-top: 2px; }
-  .detail-panel { border: 0.5px solid #d3d1c7; border-radius: 12px; padding: 12px 14px; background: #fff; min-height: 80px; }
-  .tag-row { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
-  .tag { font-size: 10px; padding: 2px 7px; border-radius: 10px; border: 0.5px solid #d3d1c7; color: #73726c; background: #f5f4f0; }
-  .tag.c { background: #E1F5EE; color: #0F6E56; border-color: #9FE1CB; }
-  .tag.r { background: #FAEEDA; color: #854F0B; border-color: #FAC775; }
-  .tag.n { background: #F1EFE8; color: #5F5E5A; border-color: #D3D1C7; }
-  .divider { height: 1px; background: #d3d1c7; margin: 18px 0; }
-  .pill-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
-  .pill { font-size: 11px; padding: 3px 10px; border-radius: 20px; border: 0.5px solid #d3d1c7; cursor: pointer; color: #73726c; background: #fff; transition: all 0.15s; }
-  .pill.active { background: #E6F1FB; color: #185FA5; border-color: #B5D4F4; }
-  .step-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
-  .step-num { width: 22px; height: 22px; border-radius: 50%; background: #f5f4f0; border: 0.5px solid #b4b2a9; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: #73726c; flex-shrink: 0; margin-top: 1px; }
-  .step-body .st { font-size: 12px; font-weight: 500; color: #1a1a18; }
-  .step-body .sd { font-size: 11px; color: #73726c; margin-top: 2px; line-height: 1.5; }
-  .vendor-box { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-top: 12px; }
-  .vendor-card { border: 0.5px solid #d3d1c7; border-radius: 8px; padding: 10px; background: #f5f4f0; font-size: 11px; color: #73726c; }
-  .vendor-card .vt { font-size: 12px; font-weight: 500; color: #1a1a18; margin-bottom: 4px; }
-  .api-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; padding: 3px 9px; border-radius: 8px; background: #f5f4f0; border: 0.5px solid #d3d1c7; margin: 3px 2px; color: #1a1a18; }
-  .api-chip .method { font-size: 10px; font-weight: 500; color: #185FA5; }
-  .tracking-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-bottom: 12px; }
-  .metric-card { background: #f5f4f0; border-radius: 8px; padding: 10px; }
-  .metric-card .ml { font-size: 11px; color: #73726c; margin-bottom: 2px; }
+  .cohort-card .clabel { font-size: 12px; font-weight: 500; color: #1a1a18; }
+  .cohort-card .csub { font-size: 11px; color: #73726c; margin-top: 2px; }
+
+  .cohort-desc-panel { border: 0.5px solid #d3d1c7; border-radius: 12px; padding: 13px 15px; background: #fff; }
+  .cdp-title { font-size: 13px; font-weight: 500; color: #1a1a18; margin-bottom: 5px; }
+  .cdp-desc { font-size: 12px; color: #444; line-height: 1.65; }
+
+  .tag-row { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 9px; }
+  .tag { font-size: 10px; padding: 2px 8px; border-radius: 10px; border: 0.5px solid #d3d1c7; color: #73726c; background: #f5f4f0; }
+  .tag.cashless { background: #E1F5EE; color: #0F6E56; border-color: #9FE1CB; }
+  .tag.reimbursement { background: #FAEEDA; color: #854F0B; border-color: #FAC775; }
+  .tag.discount { background: #F1EFE8; color: #5F5E5A; border-color: #D3D1C7; }
+  .tag.config { background: #EEEDFE; color: #3C3489; border-color: #AFA9EC; }
+  .tag.info { background: #E6F1FB; color: #0C447C; border-color: #B5D4F4; }
+  .tag.warning { background: #FCEBEB; color: #791F1F; border-color: #F09595; }
+
+  .service-section { border: 0.5px solid #d3d1c7; border-radius: 12px; background: #fff; overflow: hidden; }
+  .service-section-header { padding: 12px 15px; border-bottom: 0.5px solid #f0efe8; }
+  .ssh-title { font-size: 12px; font-weight: 500; color: #1a1a18; margin-bottom: 3px; }
+  .ssh-desc { font-size: 11px; color: #73726c; line-height: 1.55; }
+  .service-list { padding: 10px 15px 14px; display: flex; flex-direction: column; gap: 9px; }
+
+  .service-item { border: 0.5px solid #ebe9e2; border-radius: 8px; padding: 11px 13px; background: #fafaf8; cursor: pointer; transition: border-color .15s; }
+  .service-item:hover { border-color: #b4b2a9; }
+  .service-item.open { border-color: #185FA5; background: #f4f9fe; }
+  .si-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .si-left { display: flex; align-items: center; gap: 10px; }
+  .si-icon { width: 28px; height: 28px; border-radius: 6px; background: #f0efe8; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .si-name { font-size: 13px; font-weight: 500; color: #1a1a18; }
+  .si-right { display: flex; align-items: center; gap: 8px; }
+  .si-mode { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 4px; }
+  .mode-cashless { background: #E1F5EE; color: #0F6E56; }
+  .mode-reimbursement { background: #FAEEDA; color: #854F0B; }
+  .mode-both { background: #EEEDFE; color: #3C3489; }
+  .mode-discount { background: #F1EFE8; color: #444441; }
+  .si-chevron { font-size: 10px; color: #9c9a92; transition: transform .2s; }
+  .service-item.open .si-chevron { transform: rotate(180deg); }
+  .si-detail { display: none; margin-top: 10px; border-top: 0.5px solid #e8e6de; padding-top: 10px; }
+  .service-item.open .si-detail { display: block; }
+  .si-desc { font-size: 11px; color: #555; line-height: 1.65; margin-bottom: 10px; }
+  .vendor-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 6px; margin-bottom: 10px; }
+  .vendor-chip { border: 0.5px solid #d3d1c7; border-radius: 7px; padding: 7px 10px; background: #fff; }
+  .vc-name { font-size: 11px; font-weight: 500; color: #1a1a18; }
+  .vc-type { font-size: 10px; color: #73726c; margin-top: 1px; }
+
+  .config-block { border: 0.5px solid #d3d1c7; border-radius: 10px; background: #fff; overflow: hidden; margin-bottom: 8px; }
+  .config-header { padding: 12px 15px; display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
+  .config-header:hover { background: #fafaf8; }
+  .ch-icon { width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .ch-body { flex: 1; }
+  .ch-title { font-size: 12px; font-weight: 500; color: #1a1a18; }
+  .ch-sub { font-size: 11px; color: #73726c; margin-top: 1px; }
+  .ch-arrow { font-size: 10px; color: #9c9a92; transition: transform .2s; }
+  .config-block.open .ch-arrow { transform: rotate(180deg); }
+  .config-body { display: none; border-top: 0.5px solid #f0efe8; padding: 13px 15px; }
+  .config-block.open .config-body { display: block; }
+  .config-rule { display: flex; gap: 9px; margin-bottom: 10px; align-items: flex-start; }
+  .cr-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .cr-dot.blue { background: #185FA5; }
+  .cr-dot.amber { background: #854F0B; }
+  .cr-dot.green { background: #0F6E56; }
+  .cr-dot.gray { background: #9c9a92; }
+  .cr-text { font-size: 12px; color: #333; line-height: 1.65; }
+  .cr-text strong { color: #1a1a18; font-weight: 500; }
+  .logic-box { border-radius: 7px; padding: 10px 12px; margin-top: 4px; font-size: 11px; line-height: 1.7; border-left: 3px solid; }
+  .logic-box.blue { border-color: #185FA5; background: #E6F1FB; color: #0C447C; }
+  .logic-box.amber { border-color: #854F0B; background: #FAEEDA; color: #633806; }
+  .logic-box.green { border-color: #0F6E56; background: #E1F5EE; color: #085041; }
+
+  .nudge-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+  .nudge-card { border: 0.5px solid #d3d1c7; border-radius: 8px; background: #fff; overflow: hidden; cursor: pointer; transition: border-color .15s; }
+  .nudge-card:hover { border-color: #b4b2a9; }
+  .nudge-card.active { border-color: #185FA5; }
+  .nudge-head { display: flex; align-items: center; gap: 10px; padding: 11px 13px; }
+  .nudge-icon { width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .nudge-title { font-size: 12px; font-weight: 500; color: #1a1a18; }
+  .nudge-sub { font-size: 10px; color: #73726c; margin-top: 1px; }
+  .nudge-detail { display: none; border-top: 0.5px solid #d3d1c7; padding: 11px 13px; background: #fafaf9; }
+  .nudge-card.active .nudge-detail { display: block; }
+  .nudge-detail-title { font-size: 11px; font-weight: 500; color: #1a1a18; margin-bottom: 8px; }
+  .nudge-point { display: flex; gap: 8px; margin-bottom: 8px; align-items: flex-start; }
+  .np-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+  .nudge-point-body { font-size: 11px; color: #444; line-height: 1.6; }
+  .nudge-point-body strong { color: #1a1a18; font-weight: 500; }
+  .nudge-cohort-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
+  .nct { font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 500; }
+  .nct-a { background: #E1F5EE; color: #0F6E56; }
+  .nct-b { background: #FAEEDA; color: #854F0B; }
+  .nct-c { background: #EEEDFE; color: #3C3489; }
+  .nct-d { background: #F1EFE8; color: #444441; }
+
+  .metric-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-bottom: 14px; }
+  .metric-card { background: #fff; border: 0.5px solid #d3d1c7; border-radius: 8px; padding: 12px 14px; }
+  .metric-card .ml { font-size: 10px; color: #9c9a92; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
   .metric-card .mv { font-size: 20px; font-weight: 500; color: #1a1a18; }
-  .dp-title { font-size: 13px; font-weight: 500; color: #1a1a18; margin-bottom: 4px; }
-  .dp-desc { font-size: 11px; color: #73726c; line-height: 1.6; }
-  @media (max-width: 560px) {
+  .metric-card .mt { font-size: 10px; margin-top: 3px; color: #73726c; }
+
+  .step-num-circle { width: 22px; height: 22px; border-radius: 50%; background: #1a1a18; color: #fff; font-size: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .step-num-circle.gray { background: #9c9a92; }
+
+  @media (max-width: 600px) {
     .cohort-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .vendor-box { grid-template-columns: repeat(1, minmax(0,1fr)); }
-    .tracking-grid { grid-template-columns: repeat(1, minmax(0,1fr)); }
+    .vendor-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .nudge-grid { grid-template-columns: 1fr; }
+    .metric-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   }
 </style>
 </head>
@@ -61,138 +138,372 @@
 
   <!-- STEP 1 -->
   <div class="section-title">Step 1 — Member cohort identification</div>
+  <div class="section-desc">Every member falls into one of four cohorts based on their policy configuration. Select a cohort below — the services, vendors, settlement modes, and tags in Step 2 will update accordingly.</div>
   <div class="cohort-grid">
     <div class="cohort-card active" onclick="selectCohort(0)">
       <span class="badge b-cashless">Cashless</span>
-      <div class="label">OP + Cashless</div>
-      <div class="sub">Direct vendor redirect</div>
+      <div class="clabel">Outpatient + Cashless</div>
+      <div class="csub">Direct vendor redirect</div>
     </div>
     <div class="cohort-card" onclick="selectCohort(1)">
-      <span class="badge b-reimb">Reimb. only</span>
-      <div class="label">OP + Reimbursement</div>
-      <div class="sub">Redirect + claim tag</div>
+      <span class="badge b-reimb">Reimbursement</span>
+      <div class="clabel">Outpatient + Reimbursement</div>
+      <div class="csub">Redirect with claim tag</div>
     </div>
     <div class="cohort-card" onclick="selectCohort(2)">
-      <span class="badge b-both">Both</span>
-      <div class="label">OP + Both modes</div>
-      <div class="sub">Per-service UI label</div>
+      <span class="badge b-both">Both modes</span>
+      <div class="clabel">Outpatient + Mixed</div>
+      <div class="csub">Per-service mode label</div>
     </div>
     <div class="cohort-card" onclick="selectCohort(3)">
       <span class="badge b-none">Discount</span>
-      <div class="label">No OP benefit</div>
-      <div class="sub">Volume discount offer</div>
+      <div class="clabel">No Outpatient benefit</div>
+      <div class="csub">Volume discount offer</div>
     </div>
   </div>
-  <div class="detail-panel" id="cohort-detail">
-    <div class="dp-title">Cohort A — OP + Cashless available</div>
-    <div class="dp-desc">Current live cohort. Member redirected to vendor with cashless integration. Service-level cashless flag checked before redirect. Integration with Medulife / iKin / partner vendor active.</div>
-    <div class="tag-row">
-      <span class="tag c">Cashless redirect</span>
-      <span class="tag">Vendor integration live</span>
-      <span class="tag">Service-level flag check</span>
-    </div>
+  <div class="cohort-desc-panel">
+    <div class="cdp-title" id="cdp-title"></div>
+    <div class="cdp-desc" id="cdp-desc"></div>
+    <div class="tag-row" id="cdp-tags"></div>
   </div>
 
   <div class="divider"></div>
 
   <!-- STEP 2 -->
-  <div class="section-title">Step 2 — OP service & benefit mapping</div>
-  <div class="pill-row" id="service-pills">
-    <div class="pill active" onclick="selectService(this,'Pharmacy')">Pharmacy</div>
-    <div class="pill" onclick="selectService(this,'Lab tests')">Lab tests</div>
-    <div class="pill" onclick="selectService(this,'Diagnostics')">Diagnostics</div>
-    <div class="pill" onclick="selectService(this,'Wellness')">Wellness</div>
-    <div class="pill" onclick="selectService(this,'Consultation')">Consultation</div>
-    <div class="pill" onclick="selectService(this,'Dental / Vision')">Dental / Vision</div>
-  </div>
-  <div class="detail-panel" id="service-detail">
-    <div class="dp-title">Pharmacy</div>
-    <div class="dp-desc">Per-service cashless/reimbursement flag fetched from policy API. UI tags each service card accordingly. If flag missing → discount offer shown as fallback.</div>
-    <div class="tag-row">
-      <span class="tag c">Cashless available</span>
-      <span class="tag r">Reimb. available</span>
-      <span class="tag n">Discount fallback</span>
+  <div class="section-title">Step 2 — Outpatient services and benefit mapping</div>
+  <div class="section-desc" id="step2-desc"></div>
+  <div class="service-section">
+    <div class="service-section-header">
+      <div class="ssh-title" id="ssh-title"></div>
+      <div class="ssh-desc" id="ssh-desc"></div>
     </div>
+    <div class="service-list" id="service-list"></div>
   </div>
 
   <div class="divider"></div>
 
   <!-- STEP 3 -->
-  <div class="section-title">Step 3 — Vendor selection & routing</div>
-  <div>
-    <div class="step-row"><div class="step-num">1</div><div class="step-body"><div class="st">Fetch vendors for service + corporate</div><div class="sd">API returns vendor list scoped to policy and service type</div></div></div>
-    <div class="step-row"><div class="step-num">2</div><div class="step-body"><div class="st">Single vendor → auto redirect</div><div class="sd">No user input needed. Log redirect event with member ID, service, vendor.</div></div></div>
-    <div class="step-row"><div class="step-num">3</div><div class="step-body"><div class="st">Multiple vendors → pin code / location filter</div><div class="sd">Location narrows to 1 vendor → auto redirect. Still multiple → member selects. Location logic currently hardcoded for TCS — needs to be generalised.</div></div></div>
-    <div class="step-row"><div class="step-num">4</div><div class="step-body"><div class="st">Future: prioritisation engine</div><div class="sd">Backend returns ranked vendor. Supports manual priority, round-robin, or randomisation. UI consumes ranked result transparently.</div></div></div>
+  <div class="section-title">Step 3 — Vendor selection and routing</div>
+  <div class="section-desc">Once a member selects a service, the platform determines which vendor to redirect them to using the following logic.</div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px">
+    <div style="display:flex;gap:10px;align-items:flex-start">
+      <div class="step-num-circle">1</div>
+      <div><div style="font-size:12px;font-weight:500;color:#1a1a18">Fetch vendor list by service and corporate</div><div style="font-size:11px;color:#73726c;margin-top:2px;line-height:1.5">The platform calls an API returning all empanelled vendors for the selected service scoped to the member's corporate policy.</div></div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:flex-start">
+      <div class="step-num-circle">2</div>
+      <div><div style="font-size:12px;font-weight:500;color:#1a1a18">Single vendor — automatic redirect</div><div style="font-size:11px;color:#73726c;margin-top:2px;line-height:1.5">If only one vendor is available, the member is redirected immediately. The redirect event is logged with member ID, service, vendor, and settlement mode.</div></div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:flex-start">
+      <div class="step-num-circle">3</div>
+      <div><div style="font-size:12px;font-weight:500;color:#1a1a18">Multiple vendors — filter by pin code and location</div><div style="font-size:11px;color:#73726c;margin-top:2px;line-height:1.5">Member provides their pin code. Vendors are filtered by geography. If one remains, automatic redirect. If multiple remain, member selects. Note: location logic is currently hardcoded for TCS and must be generalised for all corporates.</div></div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:flex-start">
+      <div class="step-num-circle gray">4</div>
+      <div><div style="font-size:12px;font-weight:500;color:#73726c">Phase 2 — Prioritisation engine</div><div style="font-size:11px;color:#9c9a92;margin-top:2px;line-height:1.5">A backend rule engine returns a ranked vendor. Supports manual priority, round-robin rotation, and randomisation. Member selection is no longer needed — the result is consumed transparently by the interface.</div></div>
+    </div>
   </div>
-  <div class="vendor-box">
-    <div class="vendor-card"><div class="vt">Cashless vendors</div>Integrated (Medulife / iKin). Active redirect with cashless settlement.</div>
-    <div class="vendor-card"><div class="vt">Reimbursement vendors</div>Redirect + claim tagging. Member submits claim post-visit.</div>
-    <div class="vendor-card"><div class="vt">Discount partners</div>No policy coverage. Volume deal. Coupon-code flow for uncovered members.</div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+    <div style="border:0.5px solid #d3d1c7;border-radius:8px;padding:10px;background:#f5f4f0">
+      <div style="font-size:12px;font-weight:500;color:#1a1a18;margin-bottom:4px">Cashless vendors</div>
+      <div style="font-size:11px;color:#73726c">Medibuddy, Tata 1mg, Practo — integrated with cashless settlement. Member pays nothing at point of service.</div>
+    </div>
+    <div style="border:0.5px solid #d3d1c7;border-radius:8px;padding:10px;background:#f5f4f0">
+      <div style="font-size:12px;font-weight:500;color:#1a1a18;margin-bottom:4px">Reimbursement vendors</div>
+      <div style="font-size:11px;color:#73726c">ekincare, HealthifyMe, MFine — member pays at the counter and submits a reimbursement claim through the app.</div>
+    </div>
+    <div style="border:0.5px solid #d3d1c7;border-radius:8px;padding:10px;background:#f5f4f0">
+      <div style="font-size:12px;font-weight:500;color:#1a1a18;margin-bottom:4px">Discount partners</div>
+      <div style="font-size:11px;color:#73726c">Netmeds, Apollo 247, Cure.fit — no policy coverage. Member receives a volume-negotiated discount via coupon code.</div>
+    </div>
   </div>
 
   <div class="divider"></div>
 
   <!-- STEP 4 -->
   <div class="section-title">Step 4 — APIs required (Phase 1)</div>
-  <div style="line-height:2.2">
-    <span class="api-chip"><span class="method">GET</span>services by corporate</span>
-    <span class="api-chip"><span class="method">GET</span>service benefit flags (cashless / reimb.)</span>
-    <span class="api-chip"><span class="method">GET</span>vendors by service + pin code</span>
-    <span class="api-chip"><span class="method">GET</span>vendor priority (ranked — dummy first)</span>
-    <span class="api-chip"><span class="method">POST</span>redirect event log</span>
-    <span class="api-chip"><span class="method">GET</span>discount offer by service</span>
+  <div style="line-height:2.4;margin-bottom:4px">
+    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 9px;border-radius:8px;background:#f5f4f0;border:0.5px solid #d3d1c7;margin:3px 2px"><span style="font-size:10px;font-weight:500;color:#185FA5">GET</span>Services by corporate</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 9px;border-radius:8px;background:#f5f4f0;border:0.5px solid #d3d1c7;margin:3px 2px"><span style="font-size:10px;font-weight:500;color:#185FA5">GET</span>Service benefit flags (cashless / reimbursement)</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 9px;border-radius:8px;background:#f5f4f0;border:0.5px solid #d3d1c7;margin:3px 2px"><span style="font-size:10px;font-weight:500;color:#185FA5">GET</span>Vendors by service and pin code</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 9px;border-radius:8px;background:#f5f4f0;border:0.5px solid #d3d1c7;margin:3px 2px"><span style="font-size:10px;font-weight:500;color:#185FA5">GET</span>Vendor priority — ranked (dummy for Phase 1)</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 9px;border-radius:8px;background:#FCEBEB;border:0.5px solid #F09595;margin:3px 2px"><span style="font-size:10px;font-weight:500;color:#A32D2D">POST</span>Redirect event log — highest priority</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 9px;border-radius:8px;background:#f5f4f0;border:0.5px solid #d3d1c7;margin:3px 2px"><span style="font-size:10px;font-weight:500;color:#185FA5">GET</span>Discount offer by service</span>
   </div>
 
   <div class="divider"></div>
 
-  <!-- STEP 5 -->
-  <div class="section-title">Step 5 — Tracking & analytics</div>
-  <div class="tracking-grid">
-    <div class="metric-card"><div class="ml">Redirects per service</div><div class="mv">Track</div></div>
-    <div class="metric-card"><div class="ml">Distinct users clicked</div><div class="mv">Track</div></div>
-    <div class="metric-card"><div class="ml">Vendor conversions</div><div class="mv">Track</div></div>
+  <!-- STEP 5 — CONFIG -->
+  <div class="section-title">Step 5 — Corporate configuration logic</div>
+  <div class="section-desc">Each corporate can have a different configuration. The platform must be entirely config-driven so adding, hiding, renaming, or overriding a service for any corporate requires no code change — only a configuration update via admin panel.</div>
+
+  <div class="config-block open" onclick="toggleConfig(this)">
+    <div class="config-header">
+      <div class="ch-icon" style="background:#EEEDFE">&#9881;</div>
+      <div class="ch-body"><div class="ch-title">Service visibility — which services appear for a corporate</div><div class="ch-sub">A corporate can suppress any service entirely</div></div>
+      <div class="ch-arrow">&#9660;</div>
+    </div>
+    <div class="config-body">
+      <div class="config-rule"><div class="cr-dot blue"></div><div class="cr-text"><strong>Wellness suppressed:</strong> If a corporate runs its own internal wellness programme — a dedicated gym, in-house yoga sessions, or a contracted fitness vendor — they may choose to hide the Wellness service on MAven entirely so members are not confused by a parallel offering.</div></div>
+      <div class="config-rule"><div class="cr-dot blue"></div><div class="cr-text"><strong>Dental and vision excluded:</strong> Some corporates do not offer dental or vision as part of their health benefit. These services are hidden from that corporate's members — not greyed out, simply absent from the catalogue.</div></div>
+      <div class="config-rule"><div class="cr-dot green"></div><div class="cr-text"><strong>All services visible (default):</strong> Unless explicitly configured otherwise, all available outpatient services appear for every member. The platform shows everything and labels each service by its settlement mode.</div></div>
+      <div class="logic-box blue">Configuration: <strong>corporate_service_config[service_id].visible = true / false</strong><br>Managed via admin panel. Takes effect immediately without a code deployment.</div>
+    </div>
   </div>
-  <div class="detail-panel">
-    <div class="dp-title">Why tracking matters</div>
-    <div class="dp-desc">Tracking redirect volume per vendor is the foundation for negotiating volume discounts. Only once we can demonstrate member referral counts does the commercial deal with vendors become possible. Every redirect event must log: member ID, corporate, service name, vendor, settlement mode (cashless / reimbursement / discount), and timestamp.</div>
-    <div class="tag-row">
-      <span class="tag">Member ID + corporate</span>
-      <span class="tag">Service + vendor</span>
-      <span class="tag">Mode (cashless / reimb. / discount)</span>
-      <span class="tag">Timestamp</span>
+
+  <div class="config-block" onclick="toggleConfig(this)">
+    <div class="config-header">
+      <div class="ch-icon" style="background:#EAF3DE">&#9997;</div>
+      <div class="ch-body"><div class="ch-title">Service renaming — corporates can relabel service names</div><div class="ch-sub">The display name shown to members is configurable per corporate</div></div>
+      <div class="ch-arrow">&#9660;</div>
+    </div>
+    <div class="config-body">
+      <div class="config-rule"><div class="cr-dot blue"></div><div class="cr-text"><strong>Example — Wellness renamed to "Employee Wellbeing":</strong> A large corporate with brand guidelines may prefer their own terminology. The underlying service, vendor routing, and tracking all remain unchanged — only the label displayed to the member changes.</div></div>
+      <div class="config-rule"><div class="cr-dot blue"></div><div class="cr-text"><strong>Example — Doctor Consultation renamed to "Doctor on Call":</strong> A corporate promoting a particular telemedicine product may want the service labelled as that product name for familiarity among employees.</div></div>
+      <div class="config-rule"><div class="cr-dot amber"></div><div class="cr-text"><strong>Tracking rule:</strong> All internal logs, reports, and analytics must use the canonical platform service name — for example "Wellness" — not the corporate display name. Renamed labels are strictly for member-facing display and must never appear in data pipelines.</div></div>
+      <div class="logic-box green">Configuration: <strong>corporate_service_config[service_id].display_name = "Custom Label"</strong><br>Falls back to the platform default name if not set for the corporate.</div>
+    </div>
+  </div>
+
+  <div class="config-block" onclick="toggleConfig(this)">
+    <div class="config-header">
+      <div class="ch-icon" style="background:#FAEEDA">&#128181;</div>
+      <div class="ch-body"><div class="ch-title">MediAssist discount services — when to show alongside or instead of policy benefits</div><div class="ch-sub">The most nuanced configuration layer</div></div>
+      <div class="ch-arrow">&#9660;</div>
+    </div>
+    <div class="config-body">
+      <div class="config-rule"><div class="cr-dot green"></div><div class="cr-text"><strong>Corporate has no coverage for a service — always show MediAssist discount:</strong> If a corporate's policy does not cover pharmacy, the platform surfaces a MediAssist-negotiated discount — for example 15% off at Tata 1mg — as the primary offering. This is the Cohort D experience applied at the individual service level, not the entire member.</div></div>
+      <div class="config-rule"><div class="cr-dot blue"></div><div class="cr-text"><strong>Corporate covers a service and opts in to showing MediAssist discount alongside:</strong> The member sees their policy benefit — cashless or reimbursement — as the primary option. A MediAssist discount appears as a secondary tile labelled "Additional savings available". The member can choose either path.</div></div>
+      <div class="config-rule"><div class="cr-dot amber"></div><div class="cr-text"><strong>Corporate covers a service and opts out of MediAssist discount:</strong> Only the policy-entitled benefit is shown. No discount tile appears. This is common when a corporate has negotiated exclusive vendor rates separately and does not want MediAssist's volume discount to create confusion or conflict.</div></div>
+      <div class="config-rule"><div class="cr-dot amber"></div><div class="cr-text"><strong>Corporate has its own empanelled vendor and does not want MediAssist vendors shown:</strong> The platform suppresses all MediAssist vendor options for that service and routes the member exclusively to the corporate's contracted vendor — for example, a corporate-contracted diagnostic chain like Metropolis or SRL.</div></div>
+      <div class="logic-box amber">Configuration keys:<br>
+        <strong>corporate_service_config[service_id].ma_discount_enabled = true / false</strong><br>
+        <strong>corporate_service_config[service_id].show_ma_alongside_policy = true / false</strong><br>
+        <strong>corporate_service_config[service_id].ma_vendor_override = null | vendor_id</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="config-block" onclick="toggleConfig(this)">
+    <div class="config-header">
+      <div class="ch-icon" style="background:#E1F5EE">&#128101;</div>
+      <div class="ch-body"><div class="ch-title">Dependent member access — who in the family can use these services</div><div class="ch-sub">Spouse and children on the same policy</div></div>
+      <div class="ch-arrow">&#9660;</div>
+    </div>
+    <div class="config-body">
+      <div class="config-rule"><div class="cr-dot green"></div><div class="cr-text"><strong>Dependants enabled (default for family floater policies):</strong> Spouse and up to two children can log in with their own credentials and access the same service catalogue as the primary member. Their cohort is determined by the same policy rules as the primary insured.</div></div>
+      <div class="config-rule"><div class="cr-dot amber"></div><div class="cr-text"><strong>Dependants disabled:</strong> Some group health policies cover only the employee. The platform must suppress the service catalogue for dependant logins under such corporates — dependants should see a "not covered" state, not an error.</div></div>
+      <div class="config-rule"><div class="cr-dot blue"></div><div class="cr-text"><strong>Service-level dependant restriction:</strong> A corporate may allow dependants to use pharmacy and laboratory tests but not wellness or doctor consultation. This is configured per service per corporate — not a single on/off toggle at the corporate level.</div></div>
+      <div class="logic-box blue">Configuration: <strong>corporate_service_config[service_id].dependant_access = true / false</strong></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- STEP 6 — NUDGE -->
+  <div class="section-title">Step 6 — Where to nudge members</div>
+  <div class="section-desc">The feature exists — but most members will not discover it unless it is surfaced at exactly the right moment. These are the trigger points where promoting outpatient services converts best. Click each card to expand.</div>
+  <div class="nudge-grid">
+    <div class="nudge-card active" onclick="toggleNudge(this)">
+      <div class="nudge-head"><div class="nudge-icon" style="background:#E6F1FB">&#128241;</div><div><div class="nudge-title">Post-claim moment</div><div class="nudge-sub">After a reimbursement claim is filed</div></div></div>
+      <div class="nudge-detail">
+        <div class="nudge-detail-title">Where to place the nudge</div>
+        <div class="nudge-point"><div class="np-dot" style="background:#185FA5"></div><div class="nudge-point-body"><strong>Claim submitted confirmation screen</strong> — "Next time, book cashless directly and skip the paperwork." One-tap link to the same service category the claim was filed under.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#185FA5"></div><div class="nudge-point-body"><strong>Claim status update push notification</strong> — When the claim moves to processing: "Avoid the wait next time — book cashless through MAven." Direct deep link.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#185FA5"></div><div class="nudge-point-body"><strong>Claim settled email footer</strong> — A banner promoting the outpatient service for the same category. A lab test claim triggers a lab booking prompt in the next email.</div></div>
+        <div class="nudge-cohort-tags"><span class="nct nct-b">Cohort B</span><span class="nct nct-c">Cohort C</span><span class="nct nct-d">Cohort D</span></div>
+      </div>
+    </div>
+    <div class="nudge-card" onclick="toggleNudge(this)">
+      <div class="nudge-head"><div class="nudge-icon" style="background:#EAF3DE">&#128197;</div><div><div class="nudge-title">Policy renewal window</div><div class="nudge-sub">30, 7, and 1 day before policy expiry</div></div></div>
+      <div class="nudge-detail">
+        <div class="nudge-detail-title">Where to place the nudge</div>
+        <div class="nudge-point"><div class="np-dot" style="background:#0F6E56"></div><div class="nudge-point-body"><strong>30 days before renewal</strong> — "Your outpatient benefits reset at renewal. You have ₹X remaining — use it before it lapses." Link to the service catalogue.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#0F6E56"></div><div class="nudge-point-body"><strong>7 days before renewal</strong> — Push notification and email with urgency. Show the specific unused services with one-tap booking links.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#0F6E56"></div><div class="nudge-point-body"><strong>Immediately post-renewal</strong> — "Your policy is renewed. Book your annual health checkup now." Deep link to diagnostics or laboratory tests.</div></div>
+        <div class="nudge-cohort-tags"><span class="nct nct-a">Cohort A</span><span class="nct nct-b">Cohort B</span><span class="nct nct-c">Cohort C</span></div>
+      </div>
+    </div>
+    <div class="nudge-card" onclick="toggleNudge(this)">
+      <div class="nudge-head"><div class="nudge-icon" style="background:#FAEEDA">&#127774;</div><div><div class="nudge-title">Seasonal health triggers</div><div class="nudge-sub">Calendar-driven moments throughout the year</div></div></div>
+      <div class="nudge-detail">
+        <div class="nudge-detail-title">Where to place the nudge</div>
+        <div class="nudge-point"><div class="np-dot" style="background:#854F0B"></div><div class="nudge-point-body"><strong>January — Annual checkup reminder</strong> — "Start the year in good health. Book your annual checkup." Links to diagnostics and laboratory tests.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#854F0B"></div><div class="nudge-point-body"><strong>July to September — Monsoon health alerts</strong> — "Monsoon season is here. Screen for dengue, typhoid, and infections." Laboratory tests and doctor consultation.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#854F0B"></div><div class="nudge-point-body"><strong>October — Post-Diwali vision care</strong> — "Protect your eyes after the celebrations." Dental and vision services.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#854F0B"></div><div class="nudge-point-body"><strong>April — School admission season</strong> — "Get your child's health certificate ready." Doctor consultation and diagnostics.</div></div>
+        <div class="nudge-cohort-tags"><span class="nct nct-a">Cohort A</span><span class="nct nct-b">Cohort B</span><span class="nct nct-c">Cohort C</span><span class="nct nct-d">Cohort D</span></div>
+      </div>
+    </div>
+    <div class="nudge-card" onclick="toggleNudge(this)">
+      <div class="nudge-head"><div class="nudge-icon" style="background:#EEEDFE">&#127968;</div><div><div class="nudge-title">App home screen</div><div class="nudge-sub">Every time the member opens MAven</div></div></div>
+      <div class="nudge-detail">
+        <div class="nudge-detail-title">Where to place the nudge</div>
+        <div class="nudge-point"><div class="np-dot" style="background:#3C3489"></div><div class="nudge-point-body"><strong>Contextual home screen banner</strong> — Rotates based on season, unused benefit balance, or the category of the member's last claim.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#3C3489"></div><div class="nudge-point-body"><strong>Quick action chip</strong> — "Book a lab test" and "Find a clinic near you" as persistent chips below the main navigation for the first 30 days after onboarding.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#3C3489"></div><div class="nudge-point-body"><strong>Benefit utilisation widget</strong> — "You have used ₹0 of your ₹5,000 outpatient limit this year." Idle balance displayed prominently creates urgency to act.</div></div>
+        <div class="nudge-cohort-tags"><span class="nct nct-a">Cohort A</span><span class="nct nct-b">Cohort B</span><span class="nct nct-c">Cohort C</span></div>
+      </div>
+    </div>
+    <div class="nudge-card" onclick="toggleNudge(this)">
+      <div class="nudge-head"><div class="nudge-icon" style="background:#E1F5EE">&#127970;</div><div><div class="nudge-title">HR and employer channel</div><div class="nudge-sub">Zero-cost distribution through the corporate</div></div></div>
+      <div class="nudge-detail">
+        <div class="nudge-detail-title">Where to place the nudge</div>
+        <div class="nudge-point"><div class="np-dot" style="background:#0F6E56"></div><div class="nudge-point-body"><strong>HR mailer using a MediAssist template</strong> — Monthly health benefit reminder sent by the HR team on behalf of the corporate. No cost to MediAssist and high open rates since it comes from a known sender.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#0F6E56"></div><div class="nudge-point-body"><strong>Company intranet or communication channel</strong> — "Did you know you can book lab tests cashless through MAven?" pinned in the company health or benefits channel.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#0F6E56"></div><div class="nudge-point-body"><strong>New joinee onboarding kit</strong> — Include an outpatient services explainer on Day 1. This is the highest-intent moment — the employee is actively learning what their benefits include.</div></div>
+        <div class="nudge-cohort-tags"><span class="nct nct-a">Cohort A</span><span class="nct nct-b">Cohort B</span><span class="nct nct-c">Cohort C</span><span class="nct nct-d">Cohort D</span></div>
+      </div>
+    </div>
+    <div class="nudge-card" onclick="toggleNudge(this)">
+      <div class="nudge-head"><div class="nudge-icon" style="background:#FAECE7">&#127381;</div><div><div class="nudge-title">Discount and offer nudge</div><div class="nudge-sub">Specific to Cohort D — members with no policy benefit</div></div></div>
+      <div class="nudge-detail">
+        <div class="nudge-detail-title">Where to place the nudge</div>
+        <div class="nudge-point"><div class="np-dot" style="background:#993C1D"></div><div class="nudge-point-body"><strong>First app open</strong> — "No outpatient benefit in your policy? No problem. Get 20% off lab tests near you today." Immediate value before the member disengages.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#993C1D"></div><div class="nudge-point-body"><strong>Coupon expiry reminder</strong> — "Your wellness discount expires in 3 days." Scarcity messaging drives action even among passive users.</div></div>
+        <div class="nudge-point"><div class="np-dot" style="background:#993C1D"></div><div class="nudge-point-body"><strong>Post-redirect thank you screen</strong> — "You saved ₹250 today. See what else is discounted for you." Reinforces the habit loop and encourages repeat usage.</div></div>
+        <div class="nudge-cohort-tags"><span class="nct nct-d">Cohort D</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- STEP 7 — TRACKING -->
+  <div class="section-title">Step 7 — Tracking and analytics</div>
+  <div class="section-desc">Every redirect must be logged from day one. This data is the commercial foundation — without it there is no leverage for vendor discount negotiations and no utilisation data for HR dashboards.</div>
+  <div class="metric-grid">
+    <div class="metric-card"><div class="ml">Total redirects</div><div class="mv">—</div><div class="mt">Baseline to establish from launch</div></div>
+    <div class="metric-card"><div class="ml">Distinct users</div><div class="mv">—</div><div class="mt">Unique members who clicked through</div></div>
+    <div class="metric-card"><div class="ml">Vendor conversions</div><div class="mv">—</div><div class="mt">Completed transactions post-redirect</div></div>
+    <div class="metric-card"><div class="ml">Redirect rate</div><div class="mv">—%</div><div class="mt">Members who viewed a service and clicked through</div></div>
+    <div class="metric-card"><div class="ml">Cohort D uplift</div><div class="mv">0 → ?</div><div class="mt">Net new audience — baseline is zero today</div></div>
+    <div class="metric-card"><div class="ml">Pin code coverage gap</div><div class="mv">—%</div><div class="mt">Drop-offs where no vendor was found in the area</div></div>
+  </div>
+  <div style="border:0.5px solid #F09595;border-radius:8px;padding:12px 14px;background:#FCEBEB;">
+    <div style="font-size:12px;font-weight:500;color:#791F1F;margin-bottom:5px">Every redirect event must log the following</div>
+    <div style="font-size:11px;color:#A32D2D;line-height:1.9">
+      Member ID &nbsp;·&nbsp; Corporate &nbsp;·&nbsp; Service name &nbsp;·&nbsp; Vendor &nbsp;·&nbsp; Settlement mode (cashless / reimbursement / discount) &nbsp;·&nbsp; Timestamp &nbsp;·&nbsp; Return status (completed / abandoned / error)
     </div>
   </div>
 </div>
 
 <script>
-const cohorts = [
-  { title: 'Cohort A — OP + Cashless available', desc: 'Current live cohort. Member redirected to vendor with cashless integration. Service-level cashless flag checked before redirect. Integration with Medulife / iKin / partner vendor active.', tags: [['c','Cashless redirect'],['','Vendor integration live'],['','Service-level flag check']] },
-  { title: 'Cohort B — OP + Reimbursement only', desc: 'New cohort to unlock. Member redirected to vendor. Reimbursement tag applied so the member knows to submit a claim post-visit. UI shows "Reimbursement available" badge per service card.', tags: [['r','Reimb. tag on redirect'],['','Claim submission path'],['','No cashless settlement']] },
-  { title: 'Cohort C — OP + Both modes', desc: 'Some services cashless, others reimbursement within the same policy. UI must differentiate per service. Member sees clear mode label before redirect. Most complex UI state to handle.', tags: [['c','Per-service cashless flag'],['r','Per-service reimb. flag'],['','Mixed mode UI']] },
-  { title: 'Cohort D — No OP benefit', desc: 'No OP or DOMI in policy. Member still shown all available services. Coupon code or volume discount offered (e.g. ₹500 equivalent). Vendor deal enables discount for redirected members.', tags: [['n','Discount / coupon flow'],['','Volume deal with vendor'],['','Track referral conversion']] }
+const cohortData = [
+  {
+    title: 'Cohort A — Outpatient with Cashless coverage',
+    desc: 'This member\'s policy includes outpatient benefits with cashless settlement enabled across all services. When they select a service, they are redirected to a vendor like Medibuddy or Tata 1mg with the cashless transaction pre-authorised. No payment is required at the point of service — settlement happens directly between MediAssist and the vendor.',
+    tags: [['cashless','Cashless settlement enabled'],['info','Policy-entitled benefit'],['info','Direct vendor integration active']],
+    step2desc: 'Services below reflect Cohort A — cashless coverage. Every service in this member\'s policy is cashless-eligible. Click any service to see the empanelled vendors, settlement detail, and applicable tags.',
+    sshTitle: 'All services available — cashless settlement',
+    sshDesc: 'This member can access all services without any out-of-pocket expense at the point of service. The platform redirects them to an empanelled cashless vendor automatically.',
+    services: [
+      { icon:'&#128138;', name:'Pharmacy', mode:'Cashless', modeClass:'mode-cashless', desc:'Member is redirected to Tata 1mg or Netmeds. Medicines prescribed by an empanelled doctor are covered under the cashless limit. The member uploads the prescription, places the order, and pays nothing at checkout within the policy sub-limit.', vendors:[{name:'Tata 1mg',type:'Cashless integrated'},{name:'Netmeds',type:'Cashless integrated'},{name:'PharmEasy',type:'Cashless integrated'}], tags:[['cashless','Cashless'],['info','Prescription required'],['info','Home delivery available']] },
+      { icon:'&#128299;', name:'Laboratory tests', mode:'Cashless', modeClass:'mode-cashless', desc:'Member books a lab test through Medibuddy or Thyrocare. A phlebotomist visits the home or the member walks in to an empanelled collection centre. The report is delivered digitally. No payment at the centre within the policy limit.', vendors:[{name:'Medibuddy',type:'Cashless integrated'},{name:'Thyrocare',type:'Cashless integrated'},{name:'Redcliffe Labs',type:'Cashless integrated'}], tags:[['cashless','Cashless'],['info','Home collection available'],['info','Digital report delivery']] },
+      { icon:'&#128203;', name:'Diagnostics and imaging', mode:'Cashless', modeClass:'mode-cashless', desc:'Scans such as X-ray, MRI, and ultrasound are booked through ekincare or Practo. The member visits the centre, quotes their policy number, and the bill is settled directly with MediAssist. No upfront payment required.', vendors:[{name:'ekincare',type:'Cashless integrated'},{name:'Practo',type:'Cashless integrated'},{name:'Metropolis',type:'Cashless integrated'}], tags:[['cashless','Cashless'],['info','Centre visit required'],['config','Prior authorisation may apply']] },
+      { icon:'&#127807;', name:'Wellness services', mode:'Cashless', modeClass:'mode-cashless', desc:'Includes fitness sessions, yoga, mental wellness apps, and nutrition consultations. Member is redirected to Cure.fit or HealthifyMe. Sessions within the wellness sub-limit are cashless. If the corporate has suppressed Wellness, this tile will not appear for members at that corporate.', vendors:[{name:'Cure.fit',type:'Cashless integrated'},{name:'HealthifyMe',type:'Cashless integrated'},{name:'MindPeers',type:'Cashless integrated'}], tags:[['cashless','Cashless'],['config','Corporate can suppress this service'],['config','Wellness sub-limit applies']] },
+      { icon:'&#128104;&#8205;&#9877;&#65039;', name:'Doctor consultation', mode:'Cashless', modeClass:'mode-cashless', desc:'Tele-consultation and in-clinic visits with empanelled doctors on Practo or MFine. A session token is generated at the point of redirect. Cashless settlement is applied to the consultation fee within the policy limit.', vendors:[{name:'Practo',type:'Cashless integrated'},{name:'MFine',type:'Cashless integrated'},{name:'Apollo 247',type:'Cashless integrated'}], tags:[['cashless','Cashless'],['info','Tele-consultation and in-clinic'],['info','Session token generated at redirect']] },
+      { icon:'&#129463;', name:'Dental and vision care', mode:'Cashless', modeClass:'mode-cashless', desc:'Empanelled dental clinics and optical chains accept cashless under the dental and vision sub-limit. Member selects the nearest centre by pin code. If the corporate does not include dental or vision in the policy, this tile is hidden entirely.', vendors:[{name:'Clove Dental',type:'Cashless integrated'},{name:'Vision Express',type:'Cashless integrated'},{name:'Specsmakers',type:'Cashless integrated'}], tags:[['cashless','Cashless'],['config','Corporate can hide this service'],['config','Dental and vision sub-limit applies']] }
+    ]
+  },
+  {
+    title: 'Cohort B — Outpatient with Reimbursement only',
+    desc: 'This member\'s policy includes outpatient benefits but does not support cashless settlement. The member is redirected to the vendor, pays at the point of service, and then submits a reimbursement claim through the MAven app. The platform tags every redirect as a reimbursement transaction so the claim form is partially pre-populated — reducing friction for the member.',
+    tags: [['reimbursement','Reimbursement mode'],['info','Policy-entitled benefit'],['warning','Member pays upfront at service point']],
+    step2desc: 'Services below reflect Cohort B — reimbursement mode. The member pays at the vendor and claims back through the app. Each service card is clearly tagged so the member knows before clicking that they will need to pay first.',
+    sshTitle: 'All services available — reimbursement settlement',
+    sshDesc: 'Member pays upfront at the vendor and submits a claim via the MAven app. The reimbursement tag is pre-populated on the redirect so the claim form is partially filled automatically, reducing the effort required from the member.',
+    services: [
+      { icon:'&#128138;', name:'Pharmacy', mode:'Reimbursement', modeClass:'mode-reimbursement', desc:'Member is directed to Tata 1mg or Apollo Pharmacy. They pay at checkout and upload the bill and prescription in the MAven app to initiate a reimbursement claim. The claim reference number is generated at the time of redirect so there is no manual entry needed.', vendors:[{name:'Tata 1mg',type:'Reimbursement'},{name:'Apollo Pharmacy',type:'Reimbursement'},{name:'Netmeds',type:'Reimbursement'}], tags:[['reimbursement','Reimbursement'],['warning','Member pays upfront'],['info','Claim reference pre-tagged']] },
+      { icon:'&#128299;', name:'Laboratory tests', mode:'Reimbursement', modeClass:'mode-reimbursement', desc:'Member books through Thyrocare or Lal PathLabs and pays the collection fee directly. The receipt and report are uploaded in the MAven app to initiate the reimbursement. Processing happens within the policy turnaround time.', vendors:[{name:'Thyrocare',type:'Reimbursement'},{name:'Lal PathLabs',type:'Reimbursement'},{name:'Redcliffe Labs',type:'Reimbursement'}], tags:[['reimbursement','Reimbursement'],['warning','Pay at collection centre'],['info','Upload receipt to claim']] },
+      { icon:'&#128203;', name:'Diagnostics and imaging', mode:'Reimbursement', modeClass:'mode-reimbursement', desc:'Member visits the imaging centre and pays the scanning fee. The bill is uploaded in the app along with the referring doctor\'s prescription. Reimbursement is subject to the diagnostics sub-limit in the policy.', vendors:[{name:'Metropolis',type:'Reimbursement'},{name:'SRL Diagnostics',type:'Reimbursement'},{name:'Dr Lal PathLabs',type:'Reimbursement'}], tags:[['reimbursement','Reimbursement'],['warning','Bill and prescription required'],['config','Subject to diagnostics sub-limit']] },
+      { icon:'&#127807;', name:'Wellness services', mode:'Reimbursement', modeClass:'mode-reimbursement', desc:'Fitness and mental wellness sessions are paid by the member and claimed back within the wellness sub-limit. If the corporate has suppressed the Wellness service, this tile will not appear for members at that corporate regardless of whether a reimbursement route is available.', vendors:[{name:'Cure.fit',type:'Reimbursement'},{name:'HealthifyMe',type:'Reimbursement'},{name:'Anytime Fitness',type:'Reimbursement'}], tags:[['reimbursement','Reimbursement'],['config','Corporate can suppress this service'],['config','Wellness sub-limit applies']] },
+      { icon:'&#128104;&#8205;&#9877;&#65039;', name:'Doctor consultation', mode:'Reimbursement', modeClass:'mode-reimbursement', desc:'Member consults on Practo or MFine and pays the consultation fee. The receipt is uploaded in the MAven app. Tele-consultation fees are typically lower and processed faster than in-clinic visit claims.', vendors:[{name:'Practo',type:'Reimbursement'},{name:'MFine',type:'Reimbursement'},{name:'DocsApp',type:'Reimbursement'}], tags:[['reimbursement','Reimbursement'],['warning','Pay consultation fee upfront'],['info','Faster processing for tele-consultation']] },
+      { icon:'&#129463;', name:'Dental and vision care', mode:'Reimbursement', modeClass:'mode-reimbursement', desc:'Member visits any registered dental clinic or optical store and pays the bill. The invoice is uploaded with the claim in the app. Reimbursement is subject to the dental and vision sub-limit. This tile is hidden if the corporate does not include dental or vision in the policy.', vendors:[{name:'Clove Dental',type:'Reimbursement'},{name:'Titan Eye Plus',type:'Reimbursement'},{name:'Lawrence and Mayo',type:'Reimbursement'}], tags:[['reimbursement','Reimbursement'],['config','Corporate can hide this service'],['warning','Dental and vision sub-limit applies']] }
+    ]
+  },
+  {
+    title: 'Cohort C — Outpatient with Mixed settlement modes',
+    desc: 'This member\'s policy covers outpatient services, but the settlement mode differs by service. For example, laboratory tests may be cashless while dental care is reimbursement only. The platform must show the correct mode for each individual service — the member must never be surprised by having to pay upfront for a service they assumed was cashless.',
+    tags: [['cashless','Some services are cashless'],['reimbursement','Some services are reimbursement only'],['config','Per-service mode flag is required from policy API']],
+    step2desc: 'Services below reflect Cohort C — mixed mode. Each service is labelled with its own settlement mode. This is the most complex member interface state — clear labelling is essential so the member knows before clicking whether they will pay upfront or not.',
+    sshTitle: 'Services available — settlement mode varies by service',
+    sshDesc: 'The settlement mode for each service is clearly shown before the member clicks. Cashless services are settled by MediAssist directly with the vendor. Reimbursement services require the member to pay first and claim back through the app.',
+    services: [
+      { icon:'&#128138;', name:'Pharmacy', mode:'Cashless', modeClass:'mode-cashless', desc:'Pharmacy is cashless for this member. Redirected to Tata 1mg with cashless settlement pre-authorised. The member uploads the prescription, places the order, and pays nothing at checkout within the policy sub-limit.', vendors:[{name:'Tata 1mg',type:'Cashless integrated'},{name:'Netmeds',type:'Cashless integrated'},{name:'PharmEasy',type:'Cashless integrated'}], tags:[['cashless','Cashless'],['info','Prescription required']] },
+      { icon:'&#128299;', name:'Laboratory tests', mode:'Cashless', modeClass:'mode-cashless', desc:'Laboratory tests are cashless for this member. Booking through Medibuddy or Thyrocare requires no upfront payment. Home collection is available in most major cities.', vendors:[{name:'Medibuddy',type:'Cashless integrated'},{name:'Thyrocare',type:'Cashless integrated'},{name:'Redcliffe Labs',type:'Cashless integrated'}], tags:[['cashless','Cashless'],['info','Home collection available']] },
+      { icon:'&#128203;', name:'Diagnostics and imaging', mode:'Reimbursement', modeClass:'mode-reimbursement', desc:'Diagnostics are reimbursement only under this policy. The member pays at the imaging centre and uploads the bill in the MAven app. The reimbursement tag is pre-populated at redirect so the claim form is partially filled automatically.', vendors:[{name:'Metropolis',type:'Reimbursement'},{name:'SRL Diagnostics',type:'Reimbursement'},{name:'Dr Lal PathLabs',type:'Reimbursement'}], tags:[['reimbursement','Reimbursement'],['warning','Member pays upfront at centre']] },
+      { icon:'&#127807;', name:'Wellness services', mode:'Reimbursement', modeClass:'mode-reimbursement', desc:'Wellness is reimbursement only under this policy. The member pays for sessions and claims back within the wellness sub-limit. If the corporate has suppressed Wellness entirely, this tile will not appear for that corporate\'s members.', vendors:[{name:'Cure.fit',type:'Reimbursement'},{name:'HealthifyMe',type:'Reimbursement'},{name:'MindPeers',type:'Reimbursement'}], tags:[['reimbursement','Reimbursement'],['config','Corporate can suppress this service'],['config','Wellness sub-limit applies']] },
+      { icon:'&#128104;&#8205;&#9877;&#65039;', name:'Doctor consultation', mode:'Cashless', modeClass:'mode-cashless', desc:'Tele-consultation is cashless under this policy. In-clinic visits are reimbursement only. The platform detects the consultation type at the point of redirect and applies the correct settlement tag automatically — no manual selection required from the member.', vendors:[{name:'Practo',type:'Cashless — tele-consultation'},{name:'MFine',type:'Cashless — tele-consultation'},{name:'Apollo 247',type:'Reimbursement — in-clinic'}], tags:[['cashless','Tele-consultation is cashless'],['reimbursement','In-clinic visit is reimbursement'],['config','Consultation type detected at redirect']] },
+      { icon:'&#129463;', name:'Dental and vision care', mode:'Reimbursement', modeClass:'mode-reimbursement', desc:'Dental and vision are reimbursement only under this policy. The member visits any registered clinic or optical store, pays, and claims back. This tile is hidden if the corporate does not include dental or vision in the policy.', vendors:[{name:'Clove Dental',type:'Reimbursement'},{name:'Titan Eye Plus',type:'Reimbursement'},{name:'Specsmakers',type:'Reimbursement'}], tags:[['reimbursement','Reimbursement'],['config','Corporate can hide this service']] }
+    ]
+  },
+  {
+    title: 'Cohort D — No outpatient benefit in policy',
+    desc: 'This member\'s policy does not include any outpatient coverage. However, the platform still surfaces the full service catalogue. Instead of a cashless or reimbursement route, MediAssist\'s volume-negotiated discounts with Indian healthcare vendors are offered. The member gets genuine value — discounts of 10 to 25 percent at well-known platforms — and MediAssist builds a trackable referral pipeline that enables future commercial negotiations.',
+    tags: [['discount','No policy coverage'],['discount','Volume discount offered'],['info','Net-new audience — baseline engagement is zero today']],
+    step2desc: 'Services below reflect Cohort D — no policy benefit. Every service shows a MediAssist-negotiated discount instead of a cashless or reimbursement route. These members had no reason to open the app before this initiative — any engagement here is incremental.',
+    sshTitle: 'All services available — MediAssist negotiated discounts',
+    sshDesc: 'No policy coverage applies. MediAssist has negotiated volume discounts with empanelled vendors. The member pays the discounted rate directly on the vendor platform. Every redirect is tracked to build the commercial case for deeper deals over time.',
+    services: [
+      { icon:'&#128138;', name:'Pharmacy', mode:'Discount offer', modeClass:'mode-discount', desc:'Member receives 15% off on Tata 1mg or Netmeds using a MediAssist coupon code surfaced at the time of redirect. The member pays the discounted amount directly on the vendor platform. The transaction is tracked as a MediAssist referral for volume reporting.', vendors:[{name:'Tata 1mg',type:'15% discount'},{name:'Netmeds',type:'12% discount'},{name:'PharmEasy',type:'10% discount'}], tags:[['discount','Discount offer'],['info','Coupon code applied at redirect'],['info','No claim process required']] },
+      { icon:'&#128299;', name:'Laboratory tests', mode:'Discount offer', modeClass:'mode-discount', desc:'Member receives discounted rates at Thyrocare or Redcliffe Labs. The coupon is applied automatically at the point of redirect. The member pays the discounted amount and receives the report directly from the laboratory.', vendors:[{name:'Thyrocare',type:'20% discount'},{name:'Redcliffe Labs',type:'18% discount'},{name:'Lal PathLabs',type:'15% discount'}], tags:[['discount','Discount offer'],['info','Coupon applied automatically'],['info','Report delivered directly from lab']] },
+      { icon:'&#128203;', name:'Diagnostics and imaging', mode:'Discount offer', modeClass:'mode-discount', desc:'Discounted scan rates at empanelled diagnostic centres. The member books at the discounted price and pays at the centre. MediAssist tracks the referral for volume reporting to the vendor, which forms the basis of future discount negotiations.', vendors:[{name:'Metropolis',type:'12% discount'},{name:'SRL Diagnostics',type:'10% discount'},{name:'Dr Lal PathLabs',type:'15% discount'}], tags:[['discount','Discount offer'],['info','Pay at diagnostic centre'],['info','Referral tracked for vendor reporting']] },
+      { icon:'&#127807;', name:'Wellness services', mode:'Discount offer', modeClass:'mode-discount', desc:'Discounted memberships and individual sessions on Cure.fit and HealthifyMe. If the corporate has suppressed the Wellness service, this tile will not appear even for Cohort D members at that corporate.', vendors:[{name:'Cure.fit',type:'25% discount'},{name:'HealthifyMe',type:'20% discount'},{name:'MindPeers',type:'15% discount'}], tags:[['discount','Discount offer'],['config','Corporate can suppress this service'],['info','Session-based discount']] },
+      { icon:'&#128104;&#8205;&#9877;&#65039;', name:'Doctor consultation', mode:'Discount offer', modeClass:'mode-discount', desc:'Discounted tele-consultation rates on Apollo 247 or MFine. The member pays the discounted consultation fee directly on the vendor platform. This is particularly useful for members who need a quick consultation but have no cashless or reimbursement benefit.', vendors:[{name:'Apollo 247',type:'20% discount'},{name:'MFine',type:'15% discount'},{name:'DocsApp',type:'10% discount'}], tags:[['discount','Discount offer'],['info','Tele-consultation only'],['info','Pay directly on vendor platform']] },
+      { icon:'&#129463;', name:'Dental and vision care', mode:'Discount offer', modeClass:'mode-discount', desc:'Discounted dental and optical services at empanelled clinics and stores. Particularly valuable for members who have no dental or vision benefit — this is the only route available to them through the platform.', vendors:[{name:'Clove Dental',type:'15% discount'},{name:'Titan Eye Plus',type:'10% discount'},{name:'Specsmakers',type:'12% discount'}], tags:[['discount','Discount offer'],['config','Corporate can hide this service']] }
+    ]
+  }
 ];
-const services = {
-  'Pharmacy': { desc: 'Per-service cashless/reimbursement flag fetched from policy API. UI tags each service card accordingly. If flag missing → discount offer shown as fallback.', tags: [['c','Cashless available'],['r','Reimb. available'],['n','Discount fallback']] },
-  'Lab tests': { desc: 'Lab test bookings via vendor redirect. Cashless if policy covers; reimbursement tagging otherwise. Pin-code-based lab location selection.', tags: [['c','Cashless if covered'],['r','Reimb. tagging'],['','Location-based']] },
-  'Diagnostics': { desc: 'Imaging and scan services. Often reimbursement-only due to vendor complexity. Redirect with claim reference generated.', tags: [['r','Typically reimb.'],['','Claim ref. generated']] },
-  'Wellness': { desc: 'Walk-in wellness services. Cashless walk-in for covered members; discount for uncovered members.', tags: [['c','Walk-in cashless'],['n','Discount for uncovered']] },
-  'Consultation': { desc: 'Tele-consultation and clinic visits. Vendor redirect with session token. Cashless or reimbursement based on policy flag.', tags: [['c','Cashless sessions'],['r','Reimb. visits']] },
-  'Dental / Vision': { desc: 'Specialty OP benefit with separate sub-limit in policy. Cashless with empanelled network; reimbursement for out-of-network.', tags: [['c','Network cashless'],['r','Non-network reimb.']] }
-};
+
 function selectCohort(i) {
   document.querySelectorAll('.cohort-card').forEach((c,j) => c.classList.toggle('active', i===j));
-  const d = document.getElementById('cohort-detail');
-  const c = cohorts[i];
-  d.innerHTML = `<div class="dp-title">${c.title}</div><div class="dp-desc">${c.desc}</div><div class="tag-row">${c.tags.map(t=>`<span class="tag ${t[0]}">${t[1]}</span>`).join('')}</div>`;
+  const d = cohortData[i];
+  document.getElementById('cdp-title').textContent = d.title;
+  document.getElementById('cdp-desc').textContent = d.desc;
+  document.getElementById('cdp-tags').innerHTML = d.tags.map(t=>`<span class="tag ${t[0]}">${t[1]}</span>`).join('');
+  document.getElementById('step2-desc').textContent = d.step2desc;
+  document.getElementById('ssh-title').textContent = d.sshTitle;
+  document.getElementById('ssh-desc').textContent = d.sshDesc;
+  renderServices(d.services);
 }
-function selectService(el, name) {
-  document.querySelectorAll('#service-pills .pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  const d = document.getElementById('service-detail');
-  const s = services[name];
-  d.innerHTML = `<div class="dp-title">${name}</div><div class="dp-desc">${s.desc}</div><div class="tag-row">${s.tags.map(t=>`<span class="tag ${t[0]}">${t[1]}</span>`).join('')}</div>`;
+
+function renderServices(services) {
+  document.getElementById('service-list').innerHTML = services.map(s => `
+    <div class="service-item" onclick="toggleService(this)">
+      <div class="si-top">
+        <div class="si-left">
+          <div class="si-icon">${s.icon}</div>
+          <div class="si-name">${s.name}</div>
+        </div>
+        <div class="si-right">
+          <span class="si-mode ${s.modeClass}">${s.mode}</span>
+          <span class="si-chevron">&#9660;</span>
+        </div>
+      </div>
+      <div class="si-detail">
+        <div class="si-desc">${s.desc}</div>
+        <div class="vendor-grid">${s.vendors.map(v=>`<div class="vendor-chip"><div class="vc-name">${v.name}</div><div class="vc-type">${v.type}</div></div>`).join('')}</div>
+        <div class="tag-row">${s.tags.map(t=>`<span class="tag ${t[0]}">${t[1]}</span>`).join('')}</div>
+      </div>
+    </div>`).join('');
 }
+
+function toggleService(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.service-item').forEach(s => s.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+
+function toggleConfig(block) { block.classList.toggle('open'); }
+
+function toggleNudge(card) {
+  const isActive = card.classList.contains('active');
+  document.querySelectorAll('.nudge-card').forEach(c => c.classList.remove('active'));
+  if (!isActive) card.classList.add('active');
+}
+
+selectCohort(0);
 </script>
 </body>
 </html>
