@@ -175,12 +175,110 @@
     .modular-grid { grid-template-columns: 1fr; }
     .benchmark-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   }
+
+  /* ── TOP-LEVEL TABS ── */
+  .top-tabs { display: flex; gap: 4px; margin-bottom: 24px; background: #fff; border: 0.5px solid #d3d1c7; border-radius: 10px; padding: 5px; }
+  .top-tab { flex: 1; padding: 9px 14px; font-size: 12px; font-weight: 500; color: #73726c; cursor: pointer; border-radius: 7px; text-align: center; transition: all .15s; user-select: none; }
+  .top-tab:hover { background: #f5f4f0; color: #1a1a18; }
+  .top-tab.active { background: #1a1a18; color: #fff; }
+  .top-panel { display: none; }
+  .top-panel.active { display: block; }
+
+  /* ── USER STORIES STYLES ── */
+  .us-header { background: #1a1a18; border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; }
+  .us-header h2 { font-size: 18px; font-weight: 500; color: #fff; margin-bottom: 4px; }
+  .us-header .us-sub { font-size: 12px; color: #888780; margin-bottom: 14px; }
+  .us-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .us-chip { font-size: 10px; font-weight: 500; padding: 2px 9px; border-radius: 20px; }
+  .usc-red { background: #FCEBEB; color: #A32D2D; }
+  .usc-blue { background: #E6F1FB; color: #0C447C; }
+  .usc-green { background: #EAF3DE; color: #27500A; }
+  .usc-gray { background: #2c2c2a; color: #9c9a92; }
+
+  .us-alert { border-radius: 8px; padding: 11px 14px; margin-bottom: 16px; border-left: 3px solid; }
+  .us-alert.red { background: #FCEBEB; border-color: #A32D2D; }
+  .us-alert.red .uat { font-size: 12px; font-weight: 500; color: #791F1F; margin-bottom: 3px; }
+  .us-alert.red .uad { font-size: 11px; color: #A32D2D; line-height: 1.6; }
+  .us-alert.blue { background: #E6F1FB; border-color: #185FA5; }
+  .us-alert.blue .uat { font-size: 12px; font-weight: 500; color: #0C447C; margin-bottom: 3px; }
+  .us-alert.blue .uad { font-size: 11px; color: #185FA5; line-height: 1.6; }
+  .us-alert.amber { background: #FAEEDA; border-color: #854F0B; }
+  .us-alert.amber .uat { font-size: 12px; font-weight: 500; color: #633806; margin-bottom: 3px; }
+  .us-alert.amber .uad { font-size: 11px; color: #854F0B; line-height: 1.6; }
+
+  .us-section-label { font-size: 11px; font-weight: 500; color: #9c9a92; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; margin-top: 20px; }
+  .us-section-label:first-of-type { margin-top: 0; }
+  .us-epic { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+  .us-epic.member { background: #E6F1FB; color: #0C447C; }
+  .us-epic.vendor { background: #EAF3DE; color: #27500A; }
+
+  .story { background: #fff; border: 0.5px solid #d3d1c7; border-radius: 12px; margin-bottom: 8px; overflow: hidden; }
+  .story-head { display: flex; align-items: flex-start; gap: 12px; padding: 13px 15px; cursor: pointer; user-select: none; }
+  .story-head:hover { background: #fafaf8; }
+  .story-id { font-size: 10px; font-weight: 600; color: #9c9a92; background: #f5f4f0; border-radius: 4px; padding: 2px 7px; flex-shrink: 0; margin-top: 2px; white-space: nowrap; }
+  .story-content { flex: 1; }
+  .story-title { font-size: 13px; font-weight: 500; color: #1a1a18; margin-bottom: 3px; line-height: 1.4; }
+  .story-summary { font-size: 11px; color: #73726c; line-height: 1.5; }
+  .story-right { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; flex-shrink: 0; }
+  .s-priority { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 4px; white-space: nowrap; }
+  .sp-must { background: #FCEBEB; color: #A32D2D; }
+  .sp-should { background: #FAEEDA; color: #854F0B; }
+  .s-chevron { font-size: 10px; color: #9c9a92; transition: transform .2s; }
+  .story.sopen .s-chevron { transform: rotate(180deg); }
+  .story-detail { display: none; border-top: 0.5px solid #f0efe8; padding: 14px 15px; background: #fafaf8; }
+  .story.sopen .story-detail { display: block; }
+
+  .us-statement { background: #fff; border: 0.5px solid #d3d1c7; border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; font-size: 12px; color: #1a1a18; line-height: 1.9; }
+  .us-stmt-label { font-size: 10px; font-weight: 500; color: #9c9a92; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 5px; }
+  .us-role { color: #185FA5; font-weight: 500; }
+  .us-want { color: #0F6E56; font-weight: 500; }
+  .us-so { color: #854F0B; font-weight: 500; }
+
+  .ac-block { margin-bottom: 12px; }
+  .ac-label { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 7px; }
+  .acl-given { background: #E6F1FB; color: #0C447C; }
+  .acl-when { background: #EAF3DE; color: #27500A; }
+  .acl-then { background: #FAEEDA; color: #854F0B; }
+  .ac-row { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; }
+  .ac-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .ac-text { font-size: 12px; color: #333; line-height: 1.65; }
+  .ac-text strong { color: #1a1a18; font-weight: 500; }
+  .ac-text em { color: #73726c; font-style: normal; font-size: 11px; }
+
+  .us-note { border-radius: 7px; padding: 9px 12px; margin-top: 8px; border-left: 3px solid; font-size: 11px; line-height: 1.65; }
+  .us-note.blue { border-color: #185FA5; background: #E6F1FB; color: #0C447C; }
+  .us-note.amber { border-color: #854F0B; background: #FAEEDA; color: #633806; }
+  .us-note.red { border-color: #A32D2D; background: #FCEBEB; color: #791F1F; }
+  .us-note.gray { border-color: #d3d1c7; background: #f5f4f0; color: #444441; }
+
+  .us-divider { height: 1px; background: #d3d1c7; margin: 20px 0; }
+
+  .oos-box { background: #fff; border: 0.5px solid #d3d1c7; border-radius: 8px; padding: 14px 16px; }
+  .oos-row { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 7px; }
+  .oos-row:last-child { margin-bottom: 0; }
+  .oos-dot { width: 6px; height: 6px; border-radius: 50%; background: #9c9a92; flex-shrink: 0; margin-top: 5px; }
+  .oos-text { font-size: 12px; color: #555; line-height: 1.6; }
+  .oos-text strong { color: #1a1a18; font-weight: 500; }
+
+  .assm-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; }
+  .assm-num { width: 20px; height: 20px; border-radius: 50%; background: #f5f4f0; border: 0.5px solid #d3d1c7; font-size: 10px; font-weight: 500; color: #73726c; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .assm-text { font-size: 12px; color: #333; line-height: 1.65; }
+  .assm-text strong { color: #1a1a18; font-weight: 500; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>OP for All — 360° Workflow</h1>
-  <div class="subtitle">MediAssist · MAven Platform · Phase 1</div>
+  <h1>OP for All — MAven Platform</h1>
+  <div class="subtitle">MediAssist · Phase 1 · Internal working document</div>
+
+  <!-- TOP-LEVEL TABS -->
+  <div class="top-tabs">
+    <div class="top-tab active" onclick="switchTop('workflow',this)">&#127970;&nbsp; 360° Workflow</div>
+    <div class="top-tab" onclick="switchTop('stories',this)">&#128203;&nbsp; User Stories</div>
+  </div>
+
+  <!-- PANEL 1: WORKFLOW -->
+  <div class="top-panel active" id="top-workflow">
 
   <!-- STEP 1 -->
   <div class="section-title">Step 1 — Member cohort identification</div>
@@ -646,7 +744,362 @@
     Action for the team: Use any AI assistant to generate a full outpatient service flow for a B2C health app. Compare that output to what is documented here. Identify gaps. Then review how each platform above handles the same flow and note what should be adapted for MAven's specific context.
   </div>
 
-</div>
+
+  </div><!-- end top-workflow -->
+
+  <!-- PANEL 2: USER STORIES -->
+  <div class="top-panel" id="top-stories">
+
+    <div class="us-header">
+      <h2>User Stories — Phase 1</h2>
+      <div class="us-sub">For Developers and QA Team · Go-live 15 May 2026</div>
+      <div class="us-chips">
+        <span class="us-chip usc-red">Go-live: 15 May 2026</span>
+        <span class="us-chip usc-gray">Prepared: 23 April 2026</span>
+      </div>
+    </div>
+
+    <div class="us-alert blue">
+      <div class="uat">What we are building and why</div>
+      <div class="uad">Today, outpatient services on MAven are only available to limited audience(only if their corporate have got these services availed for them). This initiative opens the catalogue to every member. Cashless members get direct vendor redirect. Reimbursement members get a redirect with claim tag. No-benefit members get a MediAssist-negotiated discount. Every redirect is tracked so MediAssist can use volume data for vendor commercial negotiations.</div>
+    </div>
+    <!-- <div class="us-alert amber">
+      <div class="uat">Revenue model must be agreed with vendors before go-live</div>
+      <div class="uad">None of these stories go to production until Orange and ekincare have agreed on revenue model and confirmed they will share order data back to MediAssist.</div>
+    </div> -->
+
+    <!-- MEMBER STORIES -->
+    <div class="us-section-label">Member-facing stories</div>
+    <span class="us-epic member">&#127970; Member experience</span>
+
+    <div class="story" id="ms01">
+      <div class="story-head" onclick="togStory('ms01')">
+        <div class="story-id">MS-01</div>
+        <div class="story-content">
+          <div class="story-title">Member sees the correct service catalogue based on their policy</div>
+          <div class="story-summary">Services shown and mode labels must match what the member is actually entitled to</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As a <span class="us-role">member</span>, I want to <span class="us-want">see the outpatient services available to me with a clear label showing whether each is cashless, reimbursement, or a discount offer</span>, so that <span class="us-so">I know what I can access and what I will pay before I click through</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-given">Given</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#185FA5"></div><div class="ac-text">A member logs into MAven and navigates to the outpatient services section.</div></div>
+        </div>
+        <div class="ac-block"><div class="ac-label acl-when">When</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#0F6E56"></div><div class="ac-text">The page loads.</div></div>
+        </div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Cashless-covered service shows a green <strong>"Cashless"</strong> label.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Reimbursement-only service shows an amber <strong>"Reimbursement"</strong> label.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">No-coverage service shows a grey <strong>"Discount offer"</strong> label with the discount percentage.</div></div>
+          <!-- <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">If a corporate has switched off a service — that service does not appear at all. Not greyed out. Simply absent.</div></div> -->
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">If a corporate has given a service a custom name — the custom name is shown. The internal name is never shown.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">A member with no outpatient benefit at all still sees the full Medi Assist sponsored services catalogue — every service shows a discount label.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story" id="ms02">
+      <div class="story-head" onclick="togStory('ms02')">
+        <div class="story-id">MS-02</div>
+        <div class="story-content">
+          <div class="story-title">Cashless member is redirected to a vendor with no payment required</div>
+          <div class="story-summary">Member selects a service and is taken to the vendor — no payment at point of service</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As a <span class="us-role">member with cashless outpatient coverage</span>, I want to <span class="us-want">select a service and be taken directly to a vendor where I can book without paying anything upfront</span>, so that <span class="us-so">I can use my policy benefit without cash or reimbursement paperwork</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-given">Given</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#185FA5"></div><div class="ac-text">Member has cashless coverage for the selected service and has confirmed their pin code.</div></div>
+        </div>
+        <div class="ac-block"><div class="ac-label acl-when">When</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#0F6E56"></div><div class="ac-text">Member selects a service and taps the vendor to proceed.</div></div>
+        </div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Member is redirected. The vendor receives the member's available limit so it knows how much MediAssist covers.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">If the <strong>bill is within the limit</strong> — vendor shows zero payable by the member.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">If the <strong>bill exceeds the limit</strong> — vendor shows: <strong>"₹X covered by MediAssist · ₹Y payable by you."</strong> <em>(Example: limit ₹5,000, bill ₹6,000 → member pays ₹1,000.)</em></div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">The redirect is logged: member ID, service, vendor, settlement mode, timestamp.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story" id="ms03">
+      <div class="story-head" onclick="togStory('ms03')">
+        <div class="story-id">MS-03</div>
+        <div class="story-content">
+          <div class="story-title">Reimbursement member is redirected and knows they must pay first</div>
+          <div class="story-summary">Member is not surprised at the vendor — they know upfront that payment is required and they can claim later</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As a <span class="us-role">member with reimbursement-only coverage</span>, I want to <span class="us-want">be redirected after being clearly told I will pay upfront and can claim back through MAven</span>, so that <span class="us-so">I am not surprised at the vendor and I know what to do next</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Before redirect, a message is shown: <strong>"You will pay at the vendor. Save your bill and upload it in MAven to claim back."</strong> Member must acknowledge before proceeding.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">After redirect, MAven shows: <strong>"Don't forget to save your bill. Come back to submit your claim."</strong></div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Member can buy from the MAven-redirected vendor OR any other pharmacy or lab. There is no restriction — the redirect is guidance, not compulsion.</div></div>
+        </div>
+        <div class="us-note amber">The vendor redirect for reimbursement members is helpful guidance — not a gate. A member who goes to their own local pharmacy and submits the bill can still claim reimbursement.</div>
+      </div>
+    </div>
+
+    <div class="story" id="ms04">
+      <div class="story-head" onclick="togStory('ms04')">
+        <div class="story-id">MS-04</div>
+        <div class="story-content">
+          <div class="story-title">Member with no outpatient benefit is offered a discount and redirected</div>
+          <div class="story-summary">Members with zero policy coverage still see value — a MediAssist-negotiated discount at empanelled vendors</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As a <span class="us-role">member with no outpatient benefit</span>, I want to <span class="us-want">see health services with a discount and be redirected where the discount is applied automatically</span>, so that <span class="us-so">I still get value from MAven even though my policy does not cover outpatient services</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">All services show a "Discount offer" label with the percentage. <em>(Example: "15% off at Tata 1mg")</em></div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Discount is applied automatically at the vendor — member does not enter a coupon code manually.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">The discount percentage is the rate configured for their corporate — not a platform-wide fixed number. <em>(Corporate A sees 10%, Corporate B sees 20% for the same service.)</em></div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Member pays the discounted amount directly to the vendor. No claim process — straight payment at a discounted rate and the information is shared back to us by Vendor</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story" id="ms05">
+      <div class="story-head" onclick="togStory('ms05')">
+        <div class="story-id">MS-05</div>
+        <div class="story-content">
+          <div class="story-title">Member selects the right vendor based on their location</div>
+          <div class="story-summary">Vendor selection is driven by pin code — member is not shown vendors who do not serve their area</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As a <span class="us-role">member selecting a service</span>, I want to <span class="us-want">see only vendors that serve my location and be redirected to the right one without searching myself</span>, so that <span class="us-so">I do not end up on a vendor platform that cannot serve me</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text"><strong>One vendor</strong> in pin code → automatic redirect. No selection screen.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text"><strong>Multiple vendors</strong> in pin code → member sees list and selects one.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text"><strong>No vendor</strong> in pin code → member sees: <strong>"No vendor found in your area. Try a nearby pin code or explore our discount offers."</strong> Never a blank screen or error.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story" id="ms06">
+      <div class="story-head" onclick="togStory('ms06')">
+        <div class="story-id">MS-06</div>
+        <div class="story-content">
+          <div class="story-title">Member's pin code is remembered — not asked every time</div>
+          <div class="story-summary">Once a member gives their location, MAven remembers it and confirms it on future visits</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As a <span class="us-role">returning member</span>, I want to <span class="us-want">have my location remembered so I am not asked for my pin code every single time</span>, so that <span class="us-so">the experience is fast and I am not frustrated by repetitive inputs</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Saved pin code is used automatically. Confirmation shown: <strong>"Showing services for {City} — {Pin code}."</strong> A "Change location" link is visible.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">If member taps "Change location" — new pin code is used for that session and saved for future.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">A member who has previously provided their location never sees a blank pin code input.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story" id="ms07">
+      <div class="story-head" onclick="togStory('ms07')">
+        <div class="story-id">MS-07</div>
+        <div class="story-content">
+          <div class="story-title">Member is nudged to use outpatient services at the right moment</div>
+          <div class="story-summary">Three minimum nudge points for Phase 1 — post-claim screen, hospitalisation pre-auth, home screen</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As a <span class="us-role">member who may not know outpatient services exist on MAven</span>, I want to <span class="us-want">be reminded about these services at moments when I am most likely to need them</span>, so that <span class="us-so">I discover and use the feature without searching for it myself</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-then">Nudge 1 — Post-claim confirmation screen</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">After a reimbursement claim is submitted, show: <strong>"Next time, skip the paperwork — book cashless directly through MAven."</strong> Tapping opens the catalogue pre-filtered to the same service category as the claim.</div></div>
+        </div>
+        <div class="ac-block"><div class="ac-label acl-then">Nudge 2 — Hospitalisation pre-authorisation screen</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">When a cashless pre-auth is raised: <strong>"During recovery you will need medicines and follow-up tests. Set up outpatient access now."</strong> One tap opens the catalogue.</div></div>
+        </div>
+        <div class="ac-block"><div class="ac-label acl-then">Nudge 3 — Home screen benefit widget</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Show unused limit: <strong>"You have used ₹0 of your ₹5,000 outpatient benefit this year."</strong> Tapping opens the catalogue. Cohort D shows the discount offer instead.</div></div>
+        </div>
+        <!-- <div class="us-note gray">WhatsApp and email nudges are Phase 2. Only these three screen-based nudge points are in scope for Phase 1.</div> -->
+      </div>
+    </div>
+
+    <div class="us-divider"></div>
+
+    <!-- VENDOR STORIES -->
+    <div class="us-section-label">Vendor-specific stories</div>
+    <span class="us-epic vendor">&#127968; Vendor experience</span>
+
+    <div class="story" id="vs01">
+      <div class="story-head" onclick="togStory('vs01')">
+        <div class="story-id">VS-01</div>
+        <div class="story-content">
+          <div class="story-title">Vendor receives the redirected member with all the information they need</div>
+          <div class="story-summary">Vendor gets member identity, available limit, and settlement mode — but never the corporate name</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As a <span class="us-role">vendor receiving a member from MAven</span>, I want to <span class="us-want">receive enough information to identify the member, know their available limit, and know the settlement mode — without knowing which corporate they belong to</span>, so that <span class="us-so">I can apply the correct pricing or cashless settlement</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Vendor receives a <strong>user identifier</strong> — a unique ID, not the member's name, phone, or corporate name.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Vendor receives the <strong>settlement mode</strong> — cashless, reimbursement, or discount.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">For cashless — vendor receives the <strong>available limit</strong> to calculate copay if bill exceeds it.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">For discount — vendor receives the <strong>discount percentage</strong> to apply to the order.</div></div>
+          <!-- <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Vendor does <strong>not</strong> receive the corporate name, corporate ID, or company identification of any kind.</div></div> -->
+          <!-- <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Vendor stores the user identifier and links it to the member's account for all future orders.</div></div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="story" id="vs02">
+      <div class="story-head" onclick="togStory('vs02')">
+        <div class="story-id">VS-02</div>
+        <div class="story-content">
+          <div class="story-title">Vendor confirms to MAven when a redirected member places an order</div>
+          <div class="story-summary">MAven must know when an order is placed to calculate revenue and validate vendor invoices</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As <span class="us-role">MediAssist</span>, I want to <span class="us-want">receive a confirmation from the vendor every time a redirected member places an order, with the order value and user identifier</span>, so that <span class="us-so">I can track referrals, calculate revenue owed, and validate the vendor's monthly invoice</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Vendor sends MAven: user identifier, vendor order ID, order value, service type, and timestamp.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">MAven records this and updates the redirect record from "redirected" to "order placed".</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">If MAven receives the <strong>same order ID more than once</strong> — the duplicate is flagged and does not count towards revenue.</div></div>
+          <!-- <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">If vendor cannot implement a callback — as fallback, vendor's site is opened inside MAven's web view. Must be agreed with vendor before go-live.</div></div> -->
+        </div>
+        <div class="us-note red">Hard dependency for the revenue model. If this is not agreed with the vendor before go-live, MediAssist cannot validate vendor invoices or calculate revenue owed.</div>
+      </div>
+    </div>
+
+    <div class="story" id="vs03">
+      <div class="story-head" onclick="togStory('vs03')">
+        <div class="story-id">VS-03</div>
+        <div class="story-content">
+          <div class="story-title">Vendor sends MAven an update when an order status changes</div>
+          <div class="story-summary">Cancelled orders must not count towards revenue</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As <span class="us-role">MediAssist</span>, I want to <span class="us-want">receive a notification from the vendor whenever an order is placed, delivered, or cancelled</span>, so that <span class="us-so">cancelled orders are not counted in revenue and the member's order history stays accurate</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Vendor sends the updated status with vendor order ID and timestamp on every status change.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">If <strong>cancelled</strong> — MAven marks as cancelled, excluded from revenue and invoice validation.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">If <strong>delivered</strong> — MAven marks as completed. For cashless orders, this triggers claim settlement.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story" id="vs04">
+      <div class="story-head" onclick="togStory('vs04')">
+        <div class="story-id">VS-04</div>
+        <div class="story-content">
+          <div class="story-title">Vendor applies the correct discount for a no-benefit member automatically</div>
+          <div class="story-summary">Discount is passed at redirect and applied on arrival — member does not enter a coupon code</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As a <span class="us-role">vendor receiving a no-benefit member from MAven</span>, I want to <span class="us-want">automatically apply the MediAssist-negotiated discount when the member arrives from the redirect</span>, so that <span class="us-so">the member does not have to manually enter a coupon code</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Vendor reads the discount percentage from the redirect and applies it to the cart automatically.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Member sees discounted price on cart. No manual code entry needed.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Order notification sent back to MAven includes original value and discount applied so MediAssist can verify the correct rate was used.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story" id="vs05">
+      <div class="story-head" onclick="togStory('vs05')">
+        <div class="story-id">VS-05</div>
+        <div class="story-content">
+          <div class="story-title">Vendor shows the member their covered amount and copay when bill exceeds limit</div>
+          <div class="story-summary">Member must never be surprised at checkout — they see exactly what MediAssist covers and what they pay</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-must">Must have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As a <span class="us-role">cashless member whose bill exceeds my available limit</span>, I want to <span class="us-want">see exactly how much MediAssist is paying and how much I need to pay before I confirm</span>, so that <span class="us-so">I am not surprised at checkout</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Vendor displays: <strong>"₹5,000 covered by MediAssist · ₹1,500 payable by you."</strong> <em>(Example: limit ₹5,000, bill ₹6,500.)</em></div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Member can choose to pay the difference or go back. Vendor does not force payment without showing this breakdown.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">If bill is <strong>within the limit</strong> — vendor shows ₹0 payable. No copay breakdown needed.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story" id="vs06">
+      <div class="story-head" onclick="togStory('vs06')">
+        <div class="story-id">VS-06</div>
+        <div class="story-content">
+          <div class="story-title">Vendor can check a member's balance before booking is completed</div>
+          <div class="story-summary">Covers both forward redirect and reverse SSO — vendor fetches balance from MAven at any point</div>
+        </div>
+        <div class="story-right"><span class="s-priority sp-should">Should have</span><span class="s-chevron">&#9660;</span></div>
+      </div>
+      <div class="story-detail">
+        <div class="us-stmt-label">User story</div>
+        <div class="us-statement">As a <span class="us-role">vendor</span>, I want to <span class="us-want">check a member's available limit at any point during booking — including when the member starts from my platform, not from MAven</span>, so that <span class="us-so">I always show the correct covered amount without relying only on the initial redirect</span>.</div>
+        <div class="ac-block"><div class="ac-label acl-then">Then</div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Vendor calls MAven's balance check API with the user identifier and service type.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">MAven returns: available limit, settlement mode, and whether the member is eligible for cashless at this vendor.</div></div>
+          <div class="ac-row"><div class="ac-dot" style="background:#854F0B"></div><div class="ac-text">Vendor uses the response to show correct coverage information before booking is confirmed.</div></div>
+        </div>
+        <div class="us-note blue">This also covers reverse SSO — member is already on the vendor platform and the vendor fetches their MAven balance directly. Confirm with Anil Gutta whether this API is live or needs to be built.</div>
+      </div>
+    </div>
+
+    <div class="us-divider"></div>
+
+    <!-- OUT OF SCOPE -->
+    <!-- <div class="us-section-label">Out of scope — Phase 1</div>
+    <div class="oos-box">
+      <div class="oos-row"><div class="oos-dot"></div><div class="oos-text"><strong>Seamless reimbursement</strong> — auto claim creation at point of payment. Phase 2.</div></div>
+      <div class="oos-row"><div class="oos-dot"></div><div class="oos-text"><strong>OP walk-in</strong> — offline cashless at pharmacy or lab counter without pre-booking. Phase 2.</div></div>
+      <div class="oos-row"><div class="oos-dot"></div><div class="oos-text"><strong>WhatsApp and email nudges</strong> — only screen-based nudges are in scope for Phase 1.</div></div>
+      <div class="oos-row"><div class="oos-dot"></div><div class="oos-text"><strong>Vendor prioritisation engine</strong> — Phase 1 uses manual priority order from config only.</div></div>
+      <div class="oos-row"><div class="oos-dot"></div><div class="oos-text"><strong>Dependent member access</strong> — spouse and children on the same policy. Phase 2.</div></div>
+      <div class="oos-row"><div class="oos-dot"></div><div class="oos-text"><strong>HR utilisation dashboard</strong> — tracking data needs to accumulate first. Phase 2.</div></div>
+      <div class="oos-row"><div class="oos-dot"></div><div class="oos-text"><strong>Inpatient (IP) flow changes</strong> — this document covers outpatient only.</div></div>
+    </div> -->
+
+    <div class="us-divider"></div>
+
+    <!-- ASSUMPTIONS -->
+    <div class="us-section-label">Assumptions</div>
+    <div style="background:#fff;border:0.5px solid #d3d1c7;border-radius:8px;padding:14px 16px">
+      <div class="assm-row"><div class="assm-num">1</div><div class="assm-text">The service-level benefit flag — cashless or reimbursement per service per member — exists in the policy data and can be exposed via API. <strong>If not confirmed, MS-01 cannot be delivered.</strong></div></div>
+      <!-- <div class="assm-row"><div class="assm-num">2</div><div class="assm-text">Orange and ekincare have agreed to share order data back to MediAssist before go-live. <strong>If not agreed, VS-02 and VS-03 cannot be tested.</strong></div></div> -->
+      <div class="assm-row"><div class="assm-num">2</div><div class="assm-text">The discount percentage per corporate per service is configured in the MAven admin panel before the feature goes live. MS-04 and VS-04 depend on this data being present.</div></div>
+      <!-- <div class="assm-row"><div class="assm-num">4</div><div class="assm-text">Pin code coverage data for Phase 1 vendors (Orange and ekincare) has been loaded into the vendor catalogue config before testing begins.</div></div> -->
+      <div class="assm-row"><div class="assm-num">3</div><div class="assm-text">The balance check API for VS-06 is confirmed to be live with Anil Gutta before that story is picked up for development.</div></div>
+    </div>
+
+    <div style="text-align:center;font-size:11px;color:#9c9a92;padding:16px 0 4px">
+      MediAssist · MAven Platform · OPD for All Phase 1 User Stories · Prepared by Sourabh Singh · 23 April 2026
+    </div>
+
+  </div><!-- end top-stories -->
+
+</div><!-- end wrap -->
 
 <script>
 const cohortData = [
@@ -764,6 +1217,17 @@ function toggleNudge(card) {
 }
 
 selectCohort(0);
+
+function switchTop(id, el) {
+  document.querySelectorAll('.top-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.top-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('top-' + id).classList.add('active');
+}
+
+function togStory(id) {
+  document.getElementById(id).classList.toggle('sopen');
+}
 </script>
 </body>
 </html>
